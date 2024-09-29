@@ -3,6 +3,12 @@ import { useEffect, useState } from "react";
 const Hero = () => {
 	const [currentMerch, setCurrentMerch] = useState("black");
 
+	const [merchSearch, setMerchSearch] = useState("dofosdjfopsjd");
+
+	const handleMerchSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setMerchSearch(e.target.value);
+	};
+
 	useEffect(() => {
 		const merch = ["black", "green", "purple"];
 		const interval = setInterval(() => {
@@ -28,11 +34,13 @@ const Hero = () => {
 					items, powered by blockchain technology and crypto payments.
 				</p>
 
-				<div className=' pr-1 flex border border-gray-400 rounded-3xl overflow-hidden shadow-2xl items-center justify-between mt-6 w-[80%] h-12'>
+				<div className=' pr-1 flex border border-[#474747] rounded-3xl overflow-hidden items-center justify-between mt-6 w-[80%] h-12 backdrop-blur-lg bg-[#222222] shadow-custom-dark'>
 					<input
 						type='text'
+						value={merchSearch}
 						placeholder='Enter name of store'
-						className='sm:px-4 px-3 py-2 bg-none  outline-none placeholder-[#FFFFFFB2] flex-1'
+						onChange={handleMerchSearch}
+						className='sm:px-4 px-3 py-2  outline-none  flex-1'
 					/>
 					<button className=' text-center bg-[#4F46E5] text-[#FFFFFFB2] py-1 sm:px-6 px-2  rounded-3xl flex justify-center items-center gap-1 h-[78%] text-sm'>
 						<img
@@ -44,7 +52,7 @@ const Hero = () => {
 					</button>
 				</div>
 			</div>
-			<div className='absolute h-full w-full'>
+			<div className='absolute h-full w-full -z-30'>
 				<img
 					src='/Images/cap.svg'
 					alt='Cap merch'

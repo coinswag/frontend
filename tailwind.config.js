@@ -48,6 +48,9 @@ export default {
 			animationDelay: {
 				500: "500ms",
 			},
+			boxShadow: {
+				"custom-dark": "0 4px 8px rgba(0, 0, 0, 0.7)",
+			},
 		},
 	},
 	plugins: [require("tailwindcss-animate")],

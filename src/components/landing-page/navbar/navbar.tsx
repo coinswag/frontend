@@ -1,17 +1,11 @@
-import { useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 export default function Navbar() {
 	const location = useLocation();
-	const [visible, setVisible] = useState(false);
-
-	const handleToggle = () => {
-		setVisible(!visible);
-	};
 
 	const isActive = (path: string) => location.pathname === path;
 	return (
-		<nav className='flex justify-between items-center h-[10vh] fixed w-full top-0 left-0 px-8'>
+		<nav className='flex justify-between items-center h-[10vh] fixed w-full top-0 left-0 px-8 z-20'>
 			<NavLink
 				className=''
 				to='/'>
@@ -50,7 +44,7 @@ export default function Navbar() {
 					About
 				</NavLink>
 			</div>
-			<button className=' text-center bg-[#4F46E5] text-white py-1 px-6 rounded-2xl flex justify-center  align-middle items-center gap-1'>
+			<button className=' text-center bg-[#4F46E5] text-white px-6 rounded-2xl flex justify-center  align-middle items-center gap-1 text-sm py-2'>
 				<p className='text-sm'>Get started</p>
 				<img
 					src='/Icons/arrow.svg'
