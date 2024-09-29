@@ -1,11 +1,11 @@
-import AboutPage from "@/components/landing-page/about-page/AboutPage";
+import AboutPage from "@/components/landing-page/AboutPage";
 
 const About = () => {
-  return (
-    <div>
-      <AboutPage />
-    </div>
-  );
+	return (
+		<div>
+			<AboutPage />
+		</div>
+	);
 };
 
 export default About;

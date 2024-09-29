@@ -8,6 +8,10 @@ export default {
 				md: "calc(var(--radius) - 2px)",
 				sm: "calc(var(--radius) - 4px)",
 			},
+			fontFamily: {
+				quicksand: ["Quicksand", "sans-serif"],
+				manrope: ["Manrope", "sans-serif"],
+			},
 			colors: {
 				primary: "#0a0a0a",
 				secondary: "#111111",
@@ -30,17 +34,21 @@ export default {
 						height: "0",
 					},
 				},
-        "caret-blink": {
-          "0%,70%,100%": { opacity: "1" },
-          "20%,50%": { opacity: "0" },
-        },
+				"caret-blink": {
+					"0%,70%,100%": { opacity: "1" },
+					"20%,50%": { opacity: "0" },
+				},
 			},
 			animation: {
-			  "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-		"caret-blink": "caret-blink 1.25s ease-out infinite",
+				"accordion-down": "accordion-down 0.2s ease-out",
+				"accordion-up": "accordion-up 0.2s ease-out",
+				"caret-blink": "caret-blink 1.25s ease-out infinite",
+				"up-down": "upDown 2s ease-in-out infinite",
+			},
+			animationDelay: {
+				500: "500ms",
 			},
 		},
 	},
 	plugins: [require("tailwindcss-animate")],
-}
+};
