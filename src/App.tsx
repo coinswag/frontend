@@ -8,10 +8,9 @@ import Settings from "./pages/Settings";
 import Products from "./pages/Products";
 import OrderDetails from "./pages/OrderDetails";
 import Dashboard from "./pages/Dashboard";
-import SharedLayout from "./components/landing-page/shared-wrapper";
+
 import LandingPage from "./pages/LandingPage";
-import About from "./pages/About";
-import Merchandise from "./pages/Merchandise";
+
 import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";
 import Otp from "./pages/auth/Otp";

@@ -1,10 +1,5 @@
 import SectionTitle from "@/lib/section-title";
-import {
-	Accordion,
-	AccordionContent,
-	AccordionItem,
-	AccordionTrigger,
-} from "@/components/ui/accordion";
+
 import Question from "./Question";
 
 const Faq = () => {
