@@ -9,7 +9,7 @@ function Overview() {
 			<p className='text-sm my-8'>Analytics</p>
 			<div className='analytics'>
 				<TotalRevenue />
-				<BarChartAnalytics chartStyles='h-[24rem]' />
+				<BarChartAnalytics chartStyles='h-[18rem] w-[45rem]' />
 				<PieChartAnalytics />
 			</div>
 			<RecentOrders />

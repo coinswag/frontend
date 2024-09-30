@@ -2,7 +2,7 @@ import SectionTitle from "@/lib/section-title";
 
 function Review() {
 	return (
-		<section className='flex justify-center items-center gap-12 my-[5rem] h-[28rem]'>
+		<section className='flex justify-center items-center gap-12 my-[8rem] h-[28rem]'>
 			<div className='w-[40%]'>
 				<SectionTitle title='Product Review' />
 				<h1 className='font-manrope text-4xl text-gray-400 leading-[3.2rem] mt-10'>

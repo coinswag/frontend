@@ -9,7 +9,7 @@ import { WalletMinimal, TrendingUp } from "lucide-react";
 
 function TotalRevenue() {
 	return (
-		<Card className='w-full bg-[#808080] bg-violet-300 flex flex-col justify-between '>
+		<Card className='w-full  bg-violet-300 flex flex-col justify-between '>
 			<CardHeader className='flex gap-3 items-center'>
 				<WalletMinimal
 					color='#808080'

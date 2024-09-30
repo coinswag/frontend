@@ -1,6 +1,6 @@
 import { NavLink, useLocation } from "react-router-dom";
 
-export default function Navbar() {
+export default function NavBar() {
 	const location = useLocation();
 
 	const isActive = (path: string) => location.pathname === path;

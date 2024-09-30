@@ -29,7 +29,7 @@ const TopStories = () => {
 		},
 	];
 	return (
-		<section className=' bg-center mx-auto flex flex-col items-center justify-center w-[80%] my-16'>
+		<section className=' bg-center mx-auto flex flex-col items-center justify-center w-[80%] my-[8rem]'>
 			<SectionTitle title='Top Stories' />
 			<h1 className='font-manrope text-4xl text-center leading-[3.3rem]'>
 				Here πare our top-rated stores

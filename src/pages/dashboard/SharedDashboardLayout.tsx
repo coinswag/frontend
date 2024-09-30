@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import Header from "@/components/dashboard/header/Header";
 import NavBar from "@/components/dashboard/navbar/NavBar";
 
-function Dashboard() {
+function SharedDashboardLayout() {
 	return (
 		<div className='dashboard__layout bg-primary'>
 			<Header />
@@ -13,4 +13,4 @@ function Dashboard() {
 		</div>
 	);
 }
-export default Dashboard;
+export default SharedDashboardLayout;
