@@ -1,4 +1,4 @@
-import Navbar from "@/components/landing-page/navbar/Nav";
+import NavBar from "@/components/landing-page/navbar/NavBar";
 import {
 	UNSAFE_ErrorResponseImpl as ErrorResponseImpl,
 	useRouteError,
@@ -9,7 +9,7 @@ function Error() {
 
 	return (
 		<div>
-			<Navbar />
+			<NavBar />
 			<h1 className='flex h-[30rem] items-center justify-center bg-gray-300 font-jersey text-5xl md:text-7xl text-center'>
 				{error.status} - {error.statusText}
 			</h1>

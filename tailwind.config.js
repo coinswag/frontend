@@ -51,6 +51,9 @@ export default {
 			boxShadow: {
 				"custom-dark": "0 4px 8px rgba(0, 0, 0, 0.7)",
 			},
+			gridTemplateColumns: {
+				"auto-fill-minmax": "repeat(auto-fill, minmax(19rem, 1fr))",
+			},
 		},
 	},
 	plugins: [require("tailwindcss-animate")],

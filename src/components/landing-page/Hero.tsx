@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const Hero = () => {
 	const [currentMerch, setCurrentMerch] = useState("black");
 
-	const [merchSearch, setMerchSearch] = useState("dofosdjfopsjd");
+	const [merchSearch, setMerchSearch] = useState("");
 
 	const handleMerchSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setMerchSearch(e.target.value);
@@ -23,7 +23,7 @@ const Hero = () => {
 	}, []);
 	return (
 		<section className='bg-[url("/Images/lines.svg")] bg-cover bg-center text-center  items-center justify-center relative ellow-400  mx-auto w-full h-screen flex overflow-hidden'>
-			<div className=' relative bottom-[20%] flex flex-col items-center'>
+			<div className=' relative bottom-[20%] flex flex-col items-center z-10'>
 				<h1 className='leading-[1.2] font-quicksand text-5xl font-bold'>
 					The Web3 Platform For <br /> Community-driven Merchandise
 				</h1>
@@ -52,7 +52,7 @@ const Hero = () => {
 					</button>
 				</div>
 			</div>
-			<div className='absolute h-full w-full -z-30'>
+			<div className='absolute h-full w-full '>
 				<img
 					src='/Images/cap.svg'
 					alt='Cap merch'

@@ -1,6 +1,50 @@
 import SectionTitle from "@/lib/section-title";
 import TopMerchCard from "./TopMerchCard";
 
+// Certainly! I'll generate some variations of the linear gradient using different color combinations. Here are several examples using the same angle (137.5deg) but with different color pairs:
+
+// 1. Sunset Orange to Deep Purple:
+// ```html
+// <div class="bg-[linear-gradient(137.5deg,_#FF6B6B_-0.65%,_#4A0E4E_102.78%)]">
+// ```
+
+// 2. Aqua to Navy:
+// ```html
+// <div class="bg-[linear-gradient(137.5deg,_#00FFFF_-0.65%,_#000080_102.78%)]">
+// ```
+
+// 3. Lime Green to Forest Green:
+// ```html
+// <div class="bg-[linear-gradient(137.5deg,_#32CD32_-0.65%,_#228B22_102.78%)]">
+// ```
+
+// 4. Golden Yellow to Burnt Orange:
+// ```html
+// <div class="bg-[linear-gradient(137.5deg,_#FFD700_-0.65%,_#CC5500_102.78%)]">
+// ```
+
+// 5. Light Pink to Deep Magenta:
+// ```html
+// <div class="bg-[linear-gradient(137.5deg,_#FFB6C1_-0.65%,_#8B008B_102.78%)]">
+// ```
+
+// 6. Sky Blue to Midnight Blue:
+// ```html
+// <div class="bg-[linear-gradient(137.5deg,_#87CEEB_-0.65%,_#191970_102.78%)]">
+// ```
+
+// 7. Coral to Maroon:
+// ```html
+// <div class="bg-[linear-gradient(137.5deg,_#FF7F50_-0.65%,_#800000_102.78%)]">
+// ```
+
+// 8. Mint Green to Emerald:
+// ```html
+// <div class="bg-[linear-gradient(137.5deg,_#98FF98_-0.65%,_#50C878_102.78%)]">
+// ```
+
+// You can use these gradients directly in your HTML or JSX with Tailwind CSS. Remember, you can adjust the color codes to fine-tune the gradients to your liking. Would you like me to explain how to create a custom component or utility class for these gradients?
+
 function TopMerches() {
 	const favourtiteMerches = [
 		{

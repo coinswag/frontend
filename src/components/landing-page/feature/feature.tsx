@@ -3,7 +3,7 @@ import FeatureCard from "./FeatureCard";
 
 const Feature = () => {
 	return (
-		<section className=' bg-center mx-auto flex flex-col items-center justify-center w-[80%]'>
+		<section className=' bg-center mx-auto flex flex-col items-center justify-center w-[80%] my-[8rem]'>
 			<SectionTitle title='Features' />
 			<h1 className='font-manrope text-4xl text-center leading-[3.3rem]'>
 				Top-notch designs, <br /> delivered at your doorsteps

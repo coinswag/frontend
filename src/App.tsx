@@ -2,18 +2,22 @@ import "./app.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Fragment } from "react/jsx-runtime";
 import Overview from "./pages/Overview";
-import Orders from "./pages/Orders";
-import Customers from "./pages/Customers";
-import Settings from "./pages/Settings";
-import Products from "./pages/Products";
-import OrderDetails from "./pages/OrderDetails";
-import Dashboard from "./pages/Dashboard";
+import Orders from "./pages/dashboard/Orders";
+import Customers from "./pages/dashboard/Customers";
+import Settings from "./pages/dashboard/Settings";
+import Products from "./pages/dashboard/Products";
+import OrderDetails from "./pages/dashboard/OrderDetails";
 
 import LandingPage from "./pages/LandingPage";
 
 import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";
 import Otp from "./pages/auth/Otp";
+import SharedShopLayout from "./pages/shop/SharedShopLayout";
+import ProductOverveiw from "./pages/shop/ProductOverveiw";
+import ProductDetails from "./pages/shop/ProductDetails";
+import Cart from "./pages/shop/Cart";
+import SharedDashboardLayout from "./pages/dashboard/SharedDashboardLayout";
 
 const router = createBrowserRouter([
 	{
@@ -33,8 +37,26 @@ const router = createBrowserRouter([
 		element: <Otp />,
 	},
 	{
+		path: "/shop",
+		element: <SharedShopLayout />,
+		children: [
+			{
+				index: true,
+				element: <ProductOverveiw />,
+			},
+			{
+				path: "/shop/product/:id",
+				element: <ProductDetails />,
+			},
+			{
+				path: "/shop/cart",
+				element: <Cart />,
+			},
+		],
+	},
+	{
 		path: "/dashboard",
-		element: <Dashboard />,
+		element: <SharedDashboardLayout />,
 		children: [
 			{
 				index: true,
