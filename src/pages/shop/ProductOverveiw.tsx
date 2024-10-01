@@ -2,8 +2,9 @@ import MerchCard from "@/components/shop/MerchCard";
 import { Command, CommandInput } from "@/components/ui/command";
 
 function ProductOverveiw() {
-	const stars = Array.from({ length: 35 }, (_, index) => (
+	const stars = Array.from({ length: 10 }, (_, index) => (
 		<MerchCard
+			id='1'
 			src='/Images/cup.png'
 			creator={{ name: "Monster", image: "/Icons/brand-3.svg" }}
 			bgGradient='bg-[linear-gradient(137.5deg,_#00FFFF_-0.65%,_#000080_102.78%)]'

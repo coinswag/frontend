@@ -1,6 +1,8 @@
 import { Star } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useNavigate } from "react-router-dom";
 type TopMerchCardProps = {
+	id: string;
 	src: string;
 	name: string;
 	creator: {
@@ -14,6 +16,12 @@ type TopMerchCardProps = {
 // background: linear-gradient(137.5deg, #9747FF -0.65%, #20004A 102.78%);
 
 function MerchCard(props: TopMerchCardProps) {
+	const navigate = useNavigate();
+	const handleNavigate = () => {
+		// Navigate to the product details page
+		navigate(`/shop/product/${props.id}`);
+	};
+
 	return (
 		<article className='relative max-w-[21rem] bg-secondary p-4 border border-borderColor rounded-[1rem]'>
 			<div
@@ -39,7 +47,9 @@ function MerchCard(props: TopMerchCardProps) {
 					<h3 className='font-bold text-gray-300 '>{props.name}</h3>
 					<p className='text-sm text-gray-500'>{props.price} USDC</p>
 				</div>
-				<button className='bg-white text-black px-6 py-2 rounded-[.5rem] text-sm'>
+				<button
+					className='bg-white text-black px-6 py-2 rounded-[.5rem] text-sm'
+					onClick={handleNavigate}>
 					View
 				</button>
 			</div>

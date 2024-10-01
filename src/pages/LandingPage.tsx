@@ -5,14 +5,13 @@ import Hero from "@/components/landing-page/Hero";
 import Navbar from "@/components/landing-page/navbar/NavBar";
 import TopStories from "@/components/landing-page/top-stores/TopStores";
 import Footer from "@/components/landing-page/footer";
-import { Outlet } from "react-router-dom";
 import GetStarted from "@/components/landing-page/GetStarted";
 import TopMerches from "@/components/landing-page/top-merches/TopMerches";
 import Review from "@/components/landing-page/Review";
 
 function LandingPage() {
 	return (
-		<div className=''>
+		<div>
 			<Navbar />
 			<Hero />
 			<AboutPage />
@@ -23,7 +22,6 @@ function LandingPage() {
 			<Faq />
 			<GetStarted />
 			<Footer />
-			<Outlet />
 		</div>
 	);
 }
