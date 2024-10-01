@@ -7,6 +7,7 @@ function ProductDetails() {
 
 	const stars = Array.from({ length: 8 }, (_, index) => (
 		<MerchCard
+			id={index.toString()}
 			src='/Images/black-merch.png'
 			creator={{ name: "Monster", image: "/Icons/brand-3.svg" }}
 			bgGradient='bg-[linear-gradient(137.5deg,_#9747FF_-0.65%,_#20004A_102.78%)]'
