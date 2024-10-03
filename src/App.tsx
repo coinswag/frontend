@@ -18,7 +18,7 @@ import ProductOverveiw from "./pages/shop/ProductOverveiw";
 import ProductDetails from "./pages/shop/ProductDetails";
 import Cart from "./pages/shop/Cart";
 import SharedDashboardLayout from "./pages/dashboard/SharedDashboardLayout";
-
+import { Toaster } from "react-hot-toast";
 const router = createBrowserRouter([
 	{
 		path: "/",
@@ -89,6 +89,7 @@ const router = createBrowserRouter([
 function App() {
 	return (
 		<Fragment>
+			<Toaster />
 			<RouterProvider router={router} />
 		</Fragment>
 	);
