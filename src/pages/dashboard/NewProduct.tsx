@@ -1,9 +1,9 @@
 import { X } from "lucide-react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-
+import { Input } from "@/components/ui/input";
 function NewProduct() {
 	return (
-		<div>
+		<div className=''>
 			<header className='flex justify-between items-center'>
 				<DialogPrimitive.Close>
 					<X />
@@ -17,20 +17,22 @@ function NewProduct() {
 					<p className='text-gray-500'>
 						Provide the details below to create a new merch in your shop
 					</p>
-					<div className='my-4 w-full'>
+					<div className='my-4 w-full '>
 						<label htmlFor='name'>Name</label>
-						<input
-							style={{ backgroundColor: "red" }}
-							type='text'
-							name='name'
-							id='name'
-							className='w-full bg-red-700 border-borderColor rounded-xl block h-12'
-						/>
+						<div className='  '>
+							<Input
+								style={{ backgroundColor: "red" }}
+								name='name'
+								id='name'
+								className='w-full bg-gray-800  border-borderColor rounded-xl block h-12 z-30'
+							/>
+						</div>
 					</div>
 					<div>
 						<label htmlFor='description'>Description</label>
 						<textarea
 							name='description'
+							className='bg-gray-800 text-white p-2 rounded-lg'
 							id='description'
 						/>
 					</div>

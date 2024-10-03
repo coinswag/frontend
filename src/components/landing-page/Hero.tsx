@@ -1,12 +1,34 @@
+import { createUserWaitList } from "@/firebase/firebase.waitlist";
+import showToast from "@/lib/utils";
+import { FirebaseError } from "firebase/app";
 import { useEffect, useState } from "react";
 
 const Hero = () => {
 	const [currentMerch, setCurrentMerch] = useState("black");
 
-	const [merchSearch, setMerchSearch] = useState("");
+	const [userEmail, setUserEmail] = useState("");
+
+	// const [merchSearch, setMerchSearch] = useState("");
 
 	const handleMerchSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setMerchSearch(e.target.value);
+		setUserEmail(e.target.value);
+	};
+
+	const handleAddUser = async () => {
+		showToast.loading("Loading");
+		if (!userEmail) {
+			return showToast.error("Input field cannot be empty");
+		}
+		try {
+			await createUserWaitList(userEmail);
+			return showToast.success("Email added successfully");
+		} catch (error) {
+			if (error instanceof FirebaseError) {
+				console.log(error.message);
+				showToast.error(error.message);
+			}
+			showToast.error("An error occured, please try again");
+		}
 	};
 
 	useEffect(() => {
@@ -28,7 +50,8 @@ const Hero = () => {
 		<section className='bg-[url("/Images/lines.svg")] bg-cover bg-center text-center  items-center justify-center relative ellow-400  mx-auto w-full h-screen flex overflow-hidden'>
 			<div className=' relative bottom-[20%] flex flex-col items-center z-10'>
 				<h1 className='leading-[1.2] font-quicksand text-5xl font-bold'>
-					The Web3 Platform For <br /> Community-driven Merchandise
+					Web3 Social Commerce <br />
+					Platform For Creators and Brands
 				</h1>
 
 				<p className=' text-center text-[#FFFFFFB2] text-md mt-6 w'>
@@ -41,18 +64,20 @@ const Hero = () => {
 				<div className=' pr-1 flex border border-[#474747] rounded-3xl overflow-hidden items-center justify-between mt-6 w-[80%] h-12 backdrop-blur-lg bg-[#222222] shadow-custom-dark'>
 					<input
 						type='text'
-						value={merchSearch}
-						placeholder='Enter name of store'
+						value={userEmail}
+						placeholder='Enter your email'
 						onChange={handleMerchSearch}
 						className='sm:px-4 px-3 py-2  outline-none  flex-1'
 					/>
-					<button className=' text-center bg-[#4F46E5] text-[#FFFFFFB2] py-1 sm:px-6 px-2  rounded-3xl flex justify-center items-center gap-1 h-[78%] text-sm'>
-						<img
+					<button
+						onClick={handleAddUser}
+						className=' text-center bg-[#4F46E5] text-[#FFFFFFB2] py-1 sm:px-6 px-2  rounded-3xl flex justify-center items-center gap-1 h-[78%] text-sm'>
+						{/* <img
 							src='/Icons/search.svg'
 							alt='search icon '
 							className='w-4 brightness-100 invert'
-						/>
-						Search
+						/> */}
+						Go waitlist
 					</button>
 				</div>
 			</div>
