@@ -1,5 +1,7 @@
+import { LucideIcon } from "lucide-react";
+
 type FeatureCardProps = {
-	src: string;
+	src: LucideIcon;
 	title: string;
 	description: string;
 };
@@ -7,11 +9,11 @@ type FeatureCardProps = {
 function FeatureCard(props: FeatureCardProps) {
 	return (
 		<article className='border border-borderColor p-10 rounded-[1.2rem] bg-secondary'>
-			<img
-				src={props.src}
-				alt=''
+			<props.src
+				color='gray'
 				className='w-24 h-24 border-l border-t border-t-gray-700 border-l-gray-700 rounded-full p-4 mb-12'
 			/>
+
 			<h2 className='font-manrope mb-4 text-2xl  text-neutral-300'>
 				{props.title}
 			</h2>

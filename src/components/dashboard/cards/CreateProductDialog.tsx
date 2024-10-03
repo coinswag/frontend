@@ -1,12 +1,5 @@
-import {
-	Dialog,
-	DialogContent,
-	DialogDescription,
-	DialogFooter,
-	DialogHeader,
-	DialogTitle,
-	DialogTrigger,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import NewProduct from "@/pages/dashboard/NewProduct";
 import { CirclePlus } from "lucide-react";
 
 function CreateProductDialog() {
@@ -21,18 +14,8 @@ function CreateProductDialog() {
 					Add Product
 				</button>
 			</DialogTrigger>
-			<DialogContent className='sm:max-w-[425px] bg-secondary'>
-				<DialogHeader>
-					<DialogTitle className='text-center'>Edit profile</DialogTitle>
-					<DialogDescription>
-						Make changes to your profile here. Click save when you're
-						done.
-					</DialogDescription>
-				</DialogHeader>
-				<div className='grid gap-4 py-4'></div>
-				<DialogFooter>
-					<button type='submit'>Save changes</button>
-				</DialogFooter>
+			<DialogContent className='bg-primary h-screen max-w-screen'>
+				<NewProduct />
 			</DialogContent>
 		</Dialog>
 	);

@@ -26,7 +26,7 @@ function ProductDetails() {
 						alt=''
 						className='h-full object-cover  rounded-xl'
 					/>
-					<div className='absolute flex items-center gap-5 w-[80%] ml-auto top-[103%] left-0 '>
+					<div className='absolute flex items-center gap-5 w-[80%] ml-auto top-[103%] left-0'>
 						<img
 							src='/Images/base-unn-merch.jpeg'
 							alt=''
@@ -45,9 +45,11 @@ function ProductDetails() {
 					</div>
 				</div>
 				<div className='w-[67%] mt-8'>
-					<p>In Stock</p>
+					{/* <p className='text-gray-900 text-sm bg-gray-500 w-fit px-5 rounded-xl'>
+						In Stock
+					</p> */}
 					<h1 className='font-manrope text-4xl'>Basee UNN Hoodies</h1>
-					<h1 className='mt-4'>
+					<h1 className='mt-4 '>
 						price{" "}
 						<span className='text-2xl font-quicksand'>61.00 USDC</span>
 					</h1>
@@ -99,7 +101,7 @@ function ProductDetails() {
 					</div>
 				</div>
 			</section>
-			<section className='mt-[10rem] w-[90%] mx-auto'>
+			<section className='mt-[10rem] w-[90%] mx-auto mb-8'>
 				<h1 className='font-manrope text-3xl'>More Products</h1>
 				<div className='mt-12 grid grid-cols-auto-fill-minmax gap-12 justify-center'>
 					{stars}

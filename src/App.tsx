@@ -1,7 +1,7 @@
 import "./app.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Fragment } from "react/jsx-runtime";
-import Overview from "./pages/Overview";
+import Overview from "./pages/dashboard/Overview";
 import Orders from "./pages/dashboard/Orders";
 import Customers from "./pages/dashboard/Customers";
 import Settings from "./pages/dashboard/Settings";
