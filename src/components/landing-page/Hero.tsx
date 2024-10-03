@@ -21,6 +21,9 @@ const Hero = () => {
 
 		return () => clearInterval(interval);
 	}, []);
+	// 	Coinswag: Where Digital Assets Meet Physical Swag
+	// Revolutionizing Web3 Merchandise for Creators and Communities
+	// Turn your NFTs into limited-edition hoodies and more.
 	return (
 		<section className='bg-[url("/Images/lines.svg")] bg-cover bg-center text-center  items-center justify-center relative ellow-400  mx-auto w-full h-screen flex overflow-hidden'>
 			<div className=' relative bottom-[20%] flex flex-col items-center z-10'>
@@ -29,9 +32,10 @@ const Hero = () => {
 				</h1>
 
 				<p className=' text-center text-[#FFFFFFB2] text-md mt-6 w'>
-					Coinswag is a platform that enables creators and communities to
-					effortlessly create storefronts and sell merch and <br /> branded
-					items, powered by blockchain technology and crypto payments.
+					Coinswag is bridging the gap between digital assets and physical
+					merchandise in the Web3 era. <br /> We empower creators, NFT
+					artists, and DAOs to transform their digital presence into
+					tangible, wearable assets.
 				</p>
 
 				<div className=' pr-1 flex border border-[#474747] rounded-3xl overflow-hidden items-center justify-between mt-6 w-[80%] h-12 backdrop-blur-lg bg-[#222222] shadow-custom-dark'>

@@ -1,9 +1,23 @@
 import { Outlet } from "react-router-dom";
 import { ShoppingBag } from "lucide-react";
 
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
+const ScrollToTop = () => {
+	const { pathname } = useLocation();
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [pathname]);
+
+	return null;
+};
+
 function SharedShopLayout() {
 	return (
 		<div className='bg-primary h-s'>
+			<ScrollToTop />
 			<header className='flex justify-between items-center px-8 py-4 border-b border-b-borderColor'>
 				<div className='flex items-center gap-2'>
 					<img

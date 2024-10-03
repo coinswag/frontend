@@ -1,5 +1,27 @@
 import SectionTitle from "@/lib/section-title";
 import FeatureCard from "./FeatureCard";
+import { CircleSlash, Earth, Coins } from "lucide-react";
+
+const featuresArray = [
+	{
+		src: CircleSlash,
+		title: "Zero Inventory Risk",
+		description:
+			"Products are made on-demand, eliminating upfront costs and stock management.",
+	},
+	{
+		src: Earth,
+		title: "Global Transactions",
+		description:
+			"Accept both crypto and fiat payments for borderless commerce. ",
+	},
+	{
+		src: Coins,
+		title: "Exclusive Access",
+		description:
+			"Create token-gated merchandise accessible only to specific token or NFT holders.",
+	},
+];
 
 const Feature = () => {
 	return (
@@ -8,22 +30,14 @@ const Feature = () => {
 			<h1 className='font-manrope text-4xl text-center leading-[3.3rem]'>
 				Top-notch designs, <br /> delivered at your doorsteps
 			</h1>
-			<div className='   flex  justify-center items-center mt-9 gap-12'>
-				<FeatureCard
-					src='/Images/Wallet.svg'
-					title='Recieve the magic'
-					description='Choose a plan and share your design project details with us we’re here to listen.'
-				/>
-				<FeatureCard
-					src='/Images/Wallet.svg'
-					title='Recieve the magic'
-					description='Choose a plan and share your design project details with us we’re here to listen.'
-				/>
-				<FeatureCard
-					src='/Images/Wallet.svg'
-					title='Recieve the magic'
-					description='Choose a plan and share your design project details with us we’re here to listen.'
-				/>
+			<div className='   grid  grid-cols-3 justify-center items-center mt-9 gap-12'>
+				{featuresArray.map((feature) => (
+					<FeatureCard
+						src={feature.src}
+						title={feature.title}
+						description={feature.description}
+					/>
+				))}
 			</div>
 		</section>
 	);
