@@ -1,3 +1,11 @@
+input[type="color"]::-webkit-color-swatch {
+	width: 100%;
+	border-radius: 50%;
+	height: 100%;
+	cursor: pointer;
+	border: 2px solid #9e9e9e;
+}
+
 .analytics {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
@@ -8,8 +16,26 @@
 	}
 }
 
-.backdrop {
-	backdrop-filter: blur(10px);
+.new__product {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 9vh auto;
+	height: 100vh;
+
+	& > header {
+		grid-row: 1/2;
+		grid-column: 1/-1;
+	}
+
+	& > div {
+		grid-row: 2/3;
+		grid-column: 2/3;
+	}
+
+	& > form {
+		grid-row: 2/3;
+		grid-column: 1/2;
+	}
 }
 
 @keyframes upDown {

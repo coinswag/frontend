@@ -14,7 +14,7 @@ function CreateProductDialog() {
 					Add Product
 				</button>
 			</DialogTrigger>
-			<DialogContent className='bg-primary h-screen max-w-screen'>
+			<DialogContent className='bg-primary h-screen max-w-screen border-none'>
 				<NewProduct />
 			</DialogContent>
 		</Dialog>

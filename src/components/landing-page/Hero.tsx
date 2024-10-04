@@ -43,9 +43,7 @@ const Hero = () => {
 
 		return () => clearInterval(interval);
 	}, []);
-	// 	Coinswag: Where Digital Assets Meet Physical Swag
-	// Revolutionizing Web3 Merchandise for Creators and Communities
-	// Turn your NFTs into limited-edition hoodies and more.
+
 	return (
 		<section className='bg-[url("/Images/lines.svg")] bg-cover bg-center text-center  items-center justify-center relative ellow-400  mx-auto w-full h-screen flex overflow-hidden'>
 			<div className=' relative bottom-[20%] flex flex-col items-center z-10'>
@@ -63,7 +61,7 @@ const Hero = () => {
 
 				<div className=' pr-1 flex border border-[#474747] rounded-3xl overflow-hidden items-center justify-between mt-6 w-[80%] h-12 backdrop-blur-lg bg-[#222222] shadow-custom-dark'>
 					<input
-						type='text'
+						type='email'
 						value={userEmail}
 						placeholder='Enter your email'
 						onChange={handleMerchSearch}

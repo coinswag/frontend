@@ -54,6 +54,9 @@ export default {
 			gridTemplateColumns: {
 				"auto-fill-minmax": "repeat(auto-fill, minmax(19rem, 1fr))",
 			},
+			gridTemplateRows: {
+				"head-body": "8vh 92vh",
+			},
 		},
 	},
 	plugins: [require("tailwindcss-animate")],
