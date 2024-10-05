@@ -38,7 +38,6 @@ function CheckoutForm() {
 			(acc, item) => acc + item.price * item.quantity,
 			0
 		);
-		console.log("me");
 		setCartItemTotalPrice(total);
 	}, [cartItems]);
 
@@ -53,7 +52,7 @@ function CheckoutForm() {
 			className='md:w-[74%]'>
 			<h2 className='mb-4 text-2xl font'>Enter Details</h2>
 			<div className='grid grid-cols-2 gap-6'>
-				<div className='mb-4 flex flex-col gap-2'>
+				<div className='mb-4 flex flex-col gap-2 text-gray-500'>
 					<label htmlFor='email'>First Name</label>
 					<input
 						className='rounded border p-2'
