@@ -1,7 +1,7 @@
 import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
 import { ChevronsUpDown, PlusCircleIcon, CheckIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
-import NewStore from "../cards/NewStore";
+import NewStore from "./NewStore";
 import {
 	Popover,
 	PopoverContent,
