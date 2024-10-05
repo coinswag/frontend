@@ -13,6 +13,7 @@ import {
 import StockList from "@/components/dashboard/cards/StockList";
 import { useState, useRef } from "react";
 import showToast from "@/lib/utils";
+import { ImagePlus } from "lucide-react";
 
 export function SelectDemo() {
 	return (
@@ -81,6 +82,12 @@ function NewProduct() {
 		}
 	};
 
+	const [merchColor, setMerchColor] = useState<string[]>(["#000000"]);
+
+	const handleAddColor = () => {
+		setMerchColor([...merchColor, "#000000"]);
+	};
+
 	const handleCurrentImage = (index: number) => {
 		const currentImage = uploadedFiles[index];
 		setCurrentImage(currentImage);
@@ -143,23 +150,24 @@ function NewProduct() {
 						Color
 					</label>
 					<div className='flex items-center gap-4 mt-4'>
-						<input
-							className='w-8 h-8 rounded-full bg-blue-300'
-							type='color'
-						/>
-						<input
-							className='w-8 h-8 rounded-full bg-blue-300'
-							type='color'
-						/>
-						<input
-							className='w-8 h-8 rounded-full bg-blue-300'
-							type='color'
-						/>
-						<input
-							className='w-8 h-8 rounded-full bg-blue-300'
-							type='color'
-						/>
-						<button className='w-9 h-9 rounded-full border border-borderColor text-gray-500 flex justify-center items-center text-[.8rem]'>
+						{merchColor.map((color, index) => (
+							<input
+								key={index}
+								className='w-8 h-8 rounded-full bg-blue-300'
+								type='color'
+								value={color}
+								onChange={(e) => {
+									const newColors = [...merchColor];
+									newColors[index] = e.target.value;
+									setMerchColor(newColors);
+								}}
+							/>
+						))}
+
+						<button
+							className='w-9 h-9 rounded-full border border-borderColor text-gray-500 flex justify-center items-center text-[.8rem]'
+							onClick={handleAddColor}
+							type='button'>
 							<Plus color='gray' />
 						</button>
 					</div>
@@ -189,7 +197,7 @@ function NewProduct() {
 					<button
 						type='button'
 						className='text-[.8rem]  text-gray-300 px-4 py-1 rounded-[.4rem] bg-violet-500 mt-4'>
-						Use NFT
+						Connect wallet to use NFT
 					</button>
 				</div>
 				<SelectDemo />
@@ -208,6 +216,18 @@ function NewProduct() {
 					))}
 				</div>
 				<div className='h-[90%] mt-2 flex justify-center items-center'>
+					{uploadedFiles.length == 0 && (
+						<div className='bg-secondary rounded-[.8rem] p-8 shadow-slate-900'>
+							<ImagePlus
+								strokeWidth={1}
+								stroke='gray'
+								className='h-[13rem] w-[13rem] text-gray-400'
+							/>
+							<p className='text-gray-400 text-sm text-center'>
+								No image uploaded yet
+							</p>
+						</div>
+					)}
 					{currentImage && (
 						<img
 							className='h-[90%] w-[80%] object-cover object-top rounded-[.6rem] border border-borderColor'

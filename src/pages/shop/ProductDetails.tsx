@@ -1,97 +1,123 @@
 import { Plus, Minus } from "lucide-react";
 import MerchCard from "@/components/shop/MerchCard";
+import useMerchProduct from "@/lib/zustand/useMerchProduct";
+import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
+import { useNavigate } from "react-router-dom";
 
 function ProductDetails() {
+	const { currentMerch, merches } = useMerchProduct();
+	const navigate = useNavigate();
 	const sizeElementStypes =
 		"w-9 h-9 rounded-full border border-borderColor text-gray-500 flex justify-center items-center text-[.8rem]";
 
-	const stars = Array.from({ length: 8 }, (_, index) => (
+	const similarMerches = merches.map((merch, index) => (
 		<MerchCard
-			id={index.toString()}
-			src='/Images/black-merch.png'
-			creator={{ name: "Monster", image: "/Icons/brand-3.svg" }}
-			bgGradient='bg-[linear-gradient(137.5deg,_#9747FF_-0.65%,_#20004A_102.78%)]'
-			isFavourite={true}
-			name='Superteam Cup'
-			price={23.0}
+			{...merch}
 			key={index}
 		/>
 	));
+
+	const [currentImage, setCurrentImage] = useState(currentMerch?.src[0]);
+
+	const [quantity, setQuantity] = useState(1);
+
+	const handleQuantityIncrement = () => {
+		setQuantity((prev) => prev + 1);
+	};
+
+	const handleQuantityDecrement = () => {
+		setQuantity((prev) => prev - 1);
+	};
+
+	useEffect(() => {
+		if (!currentMerch) {
+			navigate("/shop");
+		}
+	}, [currentMerch, navigate]);
+
 	return (
 		<main>
-			<section className='grid grid-cols-2 gap-12 mt-12 px-8'>
-				<div className='h-full relative w-[80%] ml-auto'>
+			<section className='grid grid-cols-2 gap-12 mt-12 px-8 '>
+				<div
+					className={cn(
+						"h-[37rem] relative w-[80%] ml-auto rounded-2xl p-8",
+						currentMerch?.bgGradient
+					)}>
 					<img
-						src='/Images/base-unn-merch-back.png'
+						src={currentImage}
 						alt=''
 						className='h-full object-cover  rounded-xl'
 					/>
 					<div className='absolute flex items-center gap-5 w-[80%] ml-auto top-[103%] left-0'>
-						<img
-							src='/Images/base-unn-merch.jpeg'
-							alt=''
-							className='w-14 h-12 rounded-xl object-cover border border-gray-400 p-1 '
-						/>
-						<img
-							src='/Images/black-merch.png'
-							alt=''
-							className='w-14 h-12 rounded-xl object-contain border border-gray-400 p-1 '
-						/>
-						<img
-							src='/Images/base-unn-merch-back.png'
-							alt=''
-							className='w-14 h-12 rounded-xl object-contain border border-gray-400 p-1 '
-						/>
+						{currentMerch?.src.map((src, index) => (
+							<img
+								key={index}
+								src={src}
+								alt=''
+								className='w-14 h-12 rounded-xl object-cover border border-gray-400 p-1 '
+								onClick={() => setCurrentImage(src)}
+							/>
+						))}
 					</div>
 				</div>
 				<div className='w-[67%] mt-8'>
 					{/* <p className='text-gray-900 text-sm bg-gray-500 w-fit px-5 rounded-xl'>
 						In Stock
 					</p> */}
-					<h1 className='font-manrope text-4xl'>Basee UNN Hoodies</h1>
+					<h1 className='font-manrope text-4xl'>{currentMerch?.name}</h1>
 					<h1 className='mt-4 '>
 						price{" "}
-						<span className='text-2xl font-quicksand'>61.00 USDC</span>
+						<span className='text-2xl font-quicksand'>
+							{currentMerch?.price} USDC
+						</span>
 					</h1>
 					<p className='mt-5 text-sm leading-7'>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Aliquam ipsam qui id quibusdam quisquam nemo asperiores optio.
-						Dolores aperiam minus doloremque pariatur odio sequi, quisquam
-						quae voluptate debitis cupiditate earum quo quia culpa
-						quaerat.
+						{currentMerch?.description}
 					</p>
 					<div className='border-t border-t-borderColor mt-8 '>
 						<p className='text-gray-500 text-sm my-3'>color</p>
 						<div className='flex items-center gap-4'>
-							<div className='w-7 h-7 rounded-full bg-blue-300' />
-							<div className='w-7 h-7 rounded-full bg-blue-300' />
-							<div className='w-7 h-7 rounded-full bg-blue-300' />
-							<div className='w-7 h-7 rounded-full bg-blue-300' />
-							<div className='w-7 h-7 rounded-full bg-blue-300' />
+							{currentMerch?.colors.map((color, index) => (
+								<div
+									key={index}
+									style={{ background: color }}
+									className='w-7 h-7 rounded-full bg-blue-300 border border-borderColor'
+								/>
+							))}
 						</div>
 					</div>
 					<div className='border-t border-t-borderColor mt-4'>
 						<p className='text-gray-500 text-sm my-3'>size</p>
 						<div className='flex items-center gap-4'>
-							<div className={sizeElementStypes}>S</div>
-							<div className={sizeElementStypes}>M</div>
-							<div className={sizeElementStypes}>L</div>
-							<div className={sizeElementStypes}>XL</div>
+							{currentMerch?.sizes.map((size, index) => (
+								<div
+									key={index}
+									className={sizeElementStypes}>
+									{size}
+								</div>
+							))}
 						</div>
 					</div>
 					<h2 className='text-gray-400 my-5'>
-						Availability: <span className='font-bold'>10</span> in stock
+						Availability:{" "}
+						<span className='font-bold'>{currentMerch?.stock}</span> in
+						stock
 					</h2>
 
 					<div className='flex gap-12 items-center'>
 						<div className='flex items-center border border-borderColor h-12'>
-							<button className='w-14 border border-borderColor h-full flex justify-center items-center text-sm '>
+							<button
+								className='w-14 border border-borderColor h-full flex justify-center items-center text-sm '
+								onClick={handleQuantityIncrement}>
 								<Plus color='gray' />
 							</button>
 							<p className='w-14 h-full flex items-center justify-center text-sm text-gray-600'>
-								2
+								{quantity}
 							</p>
-							<button className='w-14 border border-borderColor h-full flex justify-center items-center text-sm '>
+							<button
+								className='w-14 border border-borderColor h-full flex justify-center items-center text-sm '
+								onClick={handleQuantityDecrement}>
 								<Minus color='gray' />
 							</button>
 						</div>
@@ -104,7 +130,7 @@ function ProductDetails() {
 			<section className='mt-[10rem] w-[90%] mx-auto mb-8'>
 				<h1 className='font-manrope text-3xl'>More Products</h1>
 				<div className='mt-12 grid grid-cols-auto-fill-minmax gap-12 justify-center'>
-					{stars}
+					{similarMerches}
 				</div>
 			</section>
 		</main>

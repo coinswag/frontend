@@ -53,6 +53,9 @@ export default {
 			},
 			gridTemplateColumns: {
 				"auto-fill-minmax": "repeat(auto-fill, minmax(19rem, 1fr))",
+				product_container: "repeat(auto-fill, minmax(17rem, 1fr))",
+				cart_container_md: "auto 8rem 10rem 8rem 3rem",
+				cart_container_sm: "auto 3rem 2.5rem",
 			},
 			gridTemplateRows: {
 				"head-body": "8vh 92vh",

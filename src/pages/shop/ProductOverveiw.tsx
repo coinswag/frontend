@@ -1,28 +1,50 @@
 import MerchCard from "@/components/shop/MerchCard";
-import { Command, CommandInput } from "@/components/ui/command";
+import { useState } from "react";
+import { Command } from "@/components/ui/command";
+import { cn } from "@/lib/utils";
+import { Search } from "lucide-react";
+import useMerchProduct from "@/lib/zustand/useMerchProduct";
 
 function ProductOverveiw() {
-	const stars = Array.from({ length: 10 }, (_, index) => (
+	const { merches } = useMerchProduct();
+	const [shopMerch, setShopMerch] = useState(merches);
+
+	const handleMerchSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+		if (!e.target.value) {
+			return setShopMerch(shopMerch);
+		}
+		const searchValue = e.target.value;
+		const filteredMerch = shopMerch.filter((merch) =>
+			merch.name.toLowerCase().includes(searchValue.toLowerCase())
+		);
+		setShopMerch(filteredMerch);
+	};
+
+	const stars = shopMerch.map((product) => (
 		<MerchCard
-			id='1'
-			src='/Images/cup.png'
-			creator={{ name: "Monster", image: "/Icons/brand-3.svg" }}
-			bgGradient='bg-[linear-gradient(137.5deg,_#00FFFF_-0.65%,_#000080_102.78%)]'
-			isFavourite={true}
-			name='Superteam Cup'
-			price={23.0}
-			key={index}
+			key={product.id}
+			{...product}
 		/>
 	));
 	return (
 		<main>
 			<Command className='bg-primary px-8'>
-				<CommandInput
-					className='w-[42%] mx-auto mt-12 border border-borderColor rounded-[2rem] h-[3.5rem] px-8'
-					placeholder='Search for products'
-				/>
+				<div
+					className={cn(
+						"flex items-center px-3",
+						"w-[42%] mx-auto mt-12 border border-borderColor rounded-[2rem] h-[3.5rem] px-8"
+					)}>
+					<Search className='mr-2 h-4 w-4 shrink-0 opacity-50 ' />
+					<input
+						className={cn(
+							"flex h-11 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-zinc-500 disabled:cursor-not-allowed disabled:opacity-50 dark:placeholder:text-zinc-400"
+						)}
+						placeholder='Search for products'
+						onChange={handleMerchSearch}
+					/>
+				</div>
 				<p className='mt-12 text-gray-400'>Products</p>
-				<div className='mt-5 grid grid-cols-auto-fill-minmax gap-12 justify-center'>
+				<div className='mt-5 mb-5 grid grid-cols-auto-fill-minmax gap-12 justify-center'>
 					{stars}
 				</div>
 			</Command>
