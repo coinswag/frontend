@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
 	LayoutDashboard,
 	Shirt,
@@ -17,13 +17,15 @@ function NavBar() {
 
 	return (
 		<aside className=' flex flex-col items-center gap-[1rem] border-r border-r-[#272727]'>
-			<div className=' flex justify-center items-center mb-[3rem] h-[10vh]'>
+			<Link
+				to='/'
+				className=' flex justify-center items-center mb-[3rem] h-[10vh]'>
 				<img
 					src='/Images/logo.svg'
 					alt='coinswag logo'
 					className='w-8 brightness-200'
 				/>
-			</div>
+			</Link>
 			<NavLink
 				to='/dashboard'
 				className={getNavLinkClass}
@@ -61,7 +63,7 @@ function NavBar() {
 					)}
 				</NavLink>
 				<NavLink
-					to='/messages'
+					to='/'
 					className={getNavLinkClass}>
 					{({ isActive }) => (
 						<LogOut color={isActive ? "#fff" : "#7e7e7e"} />

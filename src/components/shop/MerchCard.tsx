@@ -1,25 +1,26 @@
 import { Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useNavigate } from "react-router-dom";
-type TopMerchCardProps = {
-	id: string;
-	src: string;
-	name: string;
-	creator: {
-		name: string;
-		image: string;
-	};
-	price: number;
-	isFavourite: boolean;
-	bgGradient: string;
-};
+import { useState } from "react";
+import useMerchProduct from "@/lib/zustand/useMerchProduct";
+import { MerchProductProps } from "@/lib/zustand/useMerchProduct";
+
 // background: linear-gradient(137.5deg, #9747FF -0.65%, #20004A 102.78%);
 
-function MerchCard(props: TopMerchCardProps) {
+function MerchCard(props: MerchProductProps) {
 	const navigate = useNavigate();
+	const { setCurrentMerch } = useMerchProduct();
+
 	const handleNavigate = () => {
 		// Navigate to the product details page
+		setCurrentMerch(props);
 		navigate(`/shop/product/${props.id}`);
+	};
+
+	const [isFavourite, setIsFavourite] = useState(props.isFavourite);
+
+	const handleFavouriteChange = () => {
+		setIsFavourite(!isFavourite);
 	};
 
 	return (
@@ -27,19 +28,22 @@ function MerchCard(props: TopMerchCardProps) {
 			<div
 				className={cn(
 					" h-[17rem] w-full flex justify-center items-center px-3 relative rounded-tl-[.8rem] rounded-tr-[.8rem]",
-					props.bgGradient
+					"bg-gray-400"
 				)}>
-				<div className='flex justify-end items-center absolute top-0 left-0 w-full px-3 mt-2 '>
+				<div
+					className='flex justify-end items-center absolute top-0 left-0 w-full px-3 mt-2 cursor-pointer'
+					onClick={handleFavouriteChange}>
 					<span className='bg-[#a9a9a95a] p-1 rounded-full'>
 						<Star
-							stroke='none'
-							fill='#fac55a'
+							stroke={isFavourite ? "#fac55a" : "#f0f0f0"}
+							fill={isFavourite ? "#fac55a" : "transparent"}
 						/>
 					</span>
 				</div>
 				<img
-					src={props.src}
+					src={props.src[0]}
 					alt=''
+					className='h-[80%]'
 				/>
 			</div>
 			<div className='flex justify-between items-center mt-3 gap-3'>

@@ -19,6 +19,8 @@ import ProductDetails from "./pages/shop/ProductDetails";
 import Cart from "./pages/shop/Cart";
 import SharedDashboardLayout from "./pages/dashboard/SharedDashboardLayout";
 import { Toaster } from "react-hot-toast";
+
+import Checkout from "./pages/shop/Checkout";
 const router = createBrowserRouter([
 	{
 		path: "/",
@@ -51,6 +53,10 @@ const router = createBrowserRouter([
 			{
 				path: "/shop/cart",
 				element: <Cart />,
+			},
+			{
+				path: "/shop/checkout",
+				element: <Checkout />,
 			},
 		],
 	},
