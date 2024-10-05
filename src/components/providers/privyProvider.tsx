@@ -29,3 +29,9 @@
 //     </Provider>
 //   );
 // }
+
+const PrivyProvider = () => {
+	return <div></div>;
+};
+
+export default PrivyProvider;
