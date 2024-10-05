@@ -11,6 +11,7 @@ function Overview() {
 				<TotalRevenue />
 				<BarChartAnalytics chartStyles='h-[18rem] w-[45rem]' />
 				<PieChartAnalytics />
+				ui
 			</div>
 			<RecentOrders />
 		</div>
