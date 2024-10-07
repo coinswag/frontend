@@ -4,6 +4,11 @@ import { ShoppingBag } from "lucide-react";
 import { useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { ConnectButton } from "@particle-network/connectkit";
+import useCartProducts from "@/lib/zustand/useCartProducts";
+
+type SharedShopLayoutProps = {
+	subdomain?: string;
+};
 
 const ScrollToTop = () => {
 	const { pathname } = useLocation();
@@ -15,11 +20,12 @@ const ScrollToTop = () => {
 	return null;
 };
 
-function SharedShopLayout() {
+function SharedShopLayout(props: SharedShopLayoutProps) {
+	const { cartItems } = useCartProducts();
 	return (
-		<div className='bg-primary h-s'>
+		<div className='bg-primary h-screen '>
 			<ScrollToTop />
-			<header className='flex justify-between items-center px-8 py-4 border-b border-b-borderColor'>
+			<header className='flex justify-between items-center px-8 py-4 border-b border-b-borderColor relative'>
 				<Link
 					to='/shop'
 					className='flex items-center gap-2'>
@@ -28,19 +34,19 @@ function SharedShopLayout() {
 						alt=''
 						className='w-8 h-8 rounded-full'
 					/>
-					<h1 className='font-bold'>Acme Inc.</h1>
+					<h1 className='font-bold'>{props.subdomain || "DeGods"}</h1>
 				</Link>
-				<h1>Shop</h1>
+				<h1 className='absolute -transalte-x-1/1 -translate-y-1/2 top-1/2 left-1/2'>
+					Shop
+				</h1>
 				<div className='flex items-center gap-8'>
-					<ConnectButton className='text-sm bg-white text-black px-4 py-3 rounded-[.6rem]'>
-						
-					</ConnectButton>
+					<ConnectButton label='Connect Wallet'></ConnectButton>
 					<Link
 						to='/shop/cart'
 						className='relative'>
 						<ShoppingBag />
 						<span className='absolute -top-3 -right-2 bg-blue-600 text-white text-sm h-5 w-5 rounded-full flex justify-center items-center'>
-							3
+							{cartItems.length}
 						</span>
 					</Link>
 				</div>

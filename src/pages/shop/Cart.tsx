@@ -1,5 +1,5 @@
 import useCartProducts from "@/lib/zustand/useCartProducts";
-import CartItem from "./CartItem";
+import CartItem from "../../components/shop/CartItem";
 
 import OrderSummary from "@/components/shop/OrderSummary";
 

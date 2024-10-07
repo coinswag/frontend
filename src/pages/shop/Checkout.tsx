@@ -1,5 +1,5 @@
-import CheckoutForm from "./CheckOutForm";
-import CheckoutReceipt from "./CheckoutReceipt";
+import CheckoutForm from "@/components/shop/CheckOutForm";
+import CheckoutReceipt from "@/components/shop/CheckoutReceipt";
 
 function Checkout() {
 	return (

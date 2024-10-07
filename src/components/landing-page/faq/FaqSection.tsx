@@ -39,13 +39,14 @@ const Faq = () => {
 	return (
 		<div className='text-center justify-center items-center flex flex-col mt-12 p-3 max-w-[1240px] mx-auto w-full'>
 			<SectionTitle title='FAQ' />
-			<h1 className='font-manrope text-4xl text-center leading-[3.3rem]'>
+			<h1 className='font-manrope text-2xl md:text-4xl text-center md:leading-[3.3rem]'>
 				We've got answers to all your questions
 			</h1>
 
 			<div className=' md:p-3 p-2 md:w-3/4 w-full space-y-7 mt-5'>
-				{faqArray.map((faq) => (
+				{faqArray.map((faq, index) => (
 					<Question
+						key={index}
 						question={faq.question}
 						answer={faq.answer}
 					/>

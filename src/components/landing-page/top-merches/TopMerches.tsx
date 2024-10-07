@@ -85,12 +85,12 @@ function TopMerches() {
 		},
 	];
 	return (
-		<section className='bg-center mx-auto flex flex-col items-center justify-center w-[80%]'>
+		<section className='bg-center mx-auto flex flex-col items-center justify-center md:w-[80%] w-[90%]'>
 			<SectionTitle title='Top Merches' />
-			<h1 className='font-manrope text-4xl text-center leading-[3.3rem]'>
+			<h1 className='font-manrope text-2xl md:text-4xl text-center md:leading-[3.3rem]'>
 				We sell quality merches for your needs
 			</h1>
-			<div className='flex justify-center gap-14 items-center mt-10'>
+			<div className='flex flex-col md:flex-row justify-center gap-14 items-center mt-10'>
 				{favourtiteMerches.map((merch, index) => (
 					<TopMerchCard
 						{...merch}

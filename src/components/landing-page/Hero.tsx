@@ -46,40 +46,52 @@ const Hero = () => {
 
 	return (
 		<section className='bg-[url("/Images/lines.svg")] bg-cover bg-center text-center  items-center justify-center relative ellow-400  mx-auto w-full h-screen flex overflow-hidden'>
-			<div className=' relative bottom-[20%] flex flex-col items-center z-10'>
-				<h1 className='leading-[1.2] font-quicksand text-5xl font-bold'>
+			<div className=' relative lg:bottom-[20%] bottom-[15%] flex flex-col items-center z-10'>
+				<h1 className='leading-[1.2] font-quicksand text-2xl lg:text-5xl font-bold text-gray-200'>
 					Web3 Social Commerce <br />
 					Platform For Creators and Brands
 				</h1>
 
-				<p className=' text-center text-[#FFFFFFB2] text-md mt-6 w'>
+				<p className=' text-center text-[#FFFFFFB2]  md:block lg:text-md mt-3 lg:mt-6 md:text-[1rem] text-[.7rem] w-[80%] md:w-[90%]'>
 					Coinswag is bridging the gap between digital assets and physical
-					merchandise in the Web3 era. <br /> We empower creators, NFT
-					artists, and DAOs to transform their digital presence into
-					tangible, wearable assets.
+					merchandise in the Web3 era. <br />
+				</p>
+				<p className='text-center text-[#FFFFFFB2]  lg:text-md hidden md:block'>
+					We empower creators, NFT artists, and DAOs to transform their
+					digital presence into tangible, wearable assets
 				</p>
 
-				<div className=' pr-1 flex border border-[#474747] rounded-3xl overflow-hidden items-center justify-between mt-6 w-[80%] h-12 backdrop-blur-lg bg-[#222222] shadow-custom-dark'>
+				<div className=' pr-1 flex border border-[#474747] rounded-3xl overflow-hidden items-center justify-between mt-6 w-[90%] lg:w-[80%] h-12 backdrop-blur-lg bg-[#222222] shadow-custom-dark'>
 					<input
 						type='email'
 						value={userEmail}
 						placeholder='Enter your email'
 						onChange={handleMerchSearch}
-						className='sm:px-4 px-3 py-2  outline-none  flex-1'
+						className='sm:px-4 px-3 py-2  outline-none  flex-1 w-ful'
 					/>
 					<button
 						onClick={handleAddUser}
-						className=' text-center bg-[#4F46E5] text-[#FFFFFFB2] py-1 sm:px-6 px-2  rounded-3xl flex justify-center items-center gap-1 h-[78%] text-sm'>
+						className=' text-center bg-[#4F46E5] text-[#FFFFFFB2] py-1 sm:px-6 px-2  rounded-3xl justify-center items-center gap-1 h-[78%] text-sm hidden md:block'>
 						{/* <img
 							src='/Icons/search.svg'
 							alt='search icon '
 							className='w-4 brightness-100 invert'
 						/> */}
-						Go waitlist
+						Join waitlist
 					</button>
 				</div>
+				<button
+					onClick={handleAddUser}
+					className=' text-center bg-[#4F46E5] text-[#FFFFFFB2] sm:px-6   .flex justify-center items-center gap-1 h-[78%] text-sm mt-4 px-5 py-3 rounded-[.5rem] md:hidden'>
+					{/* <img
+							src='/Icons/search.svg'
+							alt='search icon '
+							className='w-4 brightness-100 invert'
+						/> */}
+					Join waitlist
+				</button>
 			</div>
-			<div className='absolute h-full w-full '>
+			<div className='absolute h-full w-full bg-red'>
 				<img
 					src='/Images/cap.svg'
 					alt='Cap merch'
@@ -101,7 +113,7 @@ const Hero = () => {
 				<img
 					src={`/Images/${currentMerch}-merch.png`}
 					alt='Cloth merch'
-					className=' absolute -bottom-[10%] left-1/2 -translate-x-1/2 h-[57%]'
+					className=' absolute -bottom-[10%] left-1/2 -translate-x-1/2 h-[57%] object-cover'
 				/>
 
 				<img

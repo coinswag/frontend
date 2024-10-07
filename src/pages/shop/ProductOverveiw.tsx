@@ -4,6 +4,8 @@ import { Command } from "@/components/ui/command";
 import { cn } from "@/lib/utils";
 import { Search } from "lucide-react";
 import useMerchProduct from "@/lib/zustand/useMerchProduct";
+import { useEffect } from "react";
+import { getShopByName } from "@/actions/api/shop";
 
 function ProductOverveiw() {
 	const { merches } = useMerchProduct();
@@ -19,6 +21,17 @@ function ProductOverveiw() {
 		);
 		setShopMerch(filteredMerch);
 	};
+
+	useEffect(() => {
+		const getCartItems = async () => {
+			const response = await getShopByName("degods");
+			const data = response.data;
+			console.log(data);
+			// setCartItems(data.);
+		};
+
+		getCartItems();
+	}, []);
 
 	const stars = shopMerch.map((product) => (
 		<MerchCard

@@ -2,10 +2,10 @@ import SectionTitle from "@/lib/section-title";
 
 function Review() {
 	return (
-		<section className='flex justify-center items-center gap-12 my-[8rem] h-[28rem]'>
-			<div className='w-[40%]'>
+		<section className='flex md:flex-row flex-col-reverse justify-center items-center gap-14 my-[8rem] mx-auto w-[90%] md:w-full md:h-[28rem]'>
+			<div className='md:w-[40%] flex md:block flex-col gap-2 items-center'>
 				<SectionTitle title='Product Review' />
-				<h1 className='font-manrope text-4xl text-gray-400 leading-[3.2rem] mt-10'>
+				<h1 className=' font-manrope text-2xl md:text-4xl text-gray-400 leading-[2.2rem] md:leading-[3.2rem] md:mt-10 text-center md:text-left '>
 					"Coinswag is a solid choice for anyone looking to show off their
 					crypto passion or searching for gifts for blockchain-minded
 					friends. "

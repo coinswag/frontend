@@ -2,12 +2,15 @@ import { Plus, Minus } from "lucide-react";
 import MerchCard from "@/components/shop/MerchCard";
 import useMerchProduct from "@/lib/zustand/useMerchProduct";
 import { useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
+import showToast, { cn } from "@/lib/utils";
 import { useNavigate } from "react-router-dom";
+import useCartProducts from "@/lib/zustand/useCartProducts";
 
 function ProductDetails() {
 	const { currentMerch, merches } = useMerchProduct();
 	const navigate = useNavigate();
+
+	const { addCartItem } = useCartProducts();
 	const sizeElementStypes =
 		"w-9 h-9 rounded-full border border-borderColor text-gray-500 flex justify-center items-center text-[.8rem]";
 
@@ -28,6 +31,13 @@ function ProductDetails() {
 
 	const handleQuantityDecrement = () => {
 		setQuantity((prev) => prev - 1);
+	};
+
+	const handleAddProduct = () => {
+		if (currentMerch) {
+			showToast.success("Added successfully");
+			addCartItem(currentMerch);
+		}
 	};
 
 	useEffect(() => {
@@ -121,7 +131,9 @@ function ProductDetails() {
 								<Minus color='gray' />
 							</button>
 						</div>
-						<button className='text-sm text-gray-900 bg-white rounded-[.5rem] px-12 h-12'>
+						<button
+							className='text-sm text-gray-900 bg-white rounded-[.5rem] px-12 h-12'
+							onClick={handleAddProduct}>
 							Add to cart
 						</button>
 					</div>
