@@ -56,7 +56,8 @@ const products = [
 interface CartProductState {
 	cartItems: CartItemProps[];
 	cartItemTotalPrice: number;
-	addCartItem: (item: CartItemProps) => void;
+	setCartItems: (items: CartItemProps[]) => void;
+	addCartItem: (item: Omit<CartItemProps, "quantity">) => void;
 	removeCartItem: (id: string) => void;
 	updateCartItemQuantity: (id: string, quantity: number) => void;
 	clearCart: () => void;
@@ -66,7 +67,7 @@ interface CartProductState {
 const useCartProducts = create<CartProductState>((set, get) => ({
 	cartItems: products,
 	cartItemTotalPrice: 0,
-
+	setCartItems: (items) => set({ cartItems: items }),
 	addCartItem: (newItem) =>
 		set((state) => {
 			const existingItem = state.cartItems.find(

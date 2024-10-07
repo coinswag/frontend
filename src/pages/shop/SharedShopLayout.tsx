@@ -4,6 +4,10 @@ import { ShoppingBag } from "lucide-react";
 import { useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 
+type SharedShopLayoutProps = {
+	subdomain: string;
+};
+
 const ScrollToTop = () => {
 	const { pathname } = useLocation();
 
@@ -14,9 +18,9 @@ const ScrollToTop = () => {
 	return null;
 };
 
-function SharedShopLayout() {
+function SharedShopLayout(props: SharedShopLayoutProps) {
 	return (
-		<div className='bg-primary h-s'>
+		<div className='bg-primary h-screen'>
 			<ScrollToTop />
 			<header className='flex justify-between items-center px-8 py-4 border-b border-b-borderColor'>
 				<Link
@@ -27,7 +31,7 @@ function SharedShopLayout() {
 						alt=''
 						className='w-8 h-8 rounded-full'
 					/>
-					<h1 className='font-bold'>Acme Inc.</h1>
+					<h1 className='font-bold'>{props.subdomain || "DeGods"}</h1>
 				</Link>
 				<h1>Shop</h1>
 				<div className='flex items-center gap-8'>

@@ -18,7 +18,7 @@ function Question(props: QuestionProps) {
 					fill='#fff'
 					stroke='#000000'
 				/>
-				<p className='text-gray-200 mr-auto .font-manrope  font-semibold text-lg'>
+				<p className='text-gray-200 mr-auto .font-manrope text-left  font-semibold text-sm md:text-lg'>
 					{props.question}
 				</p>
 

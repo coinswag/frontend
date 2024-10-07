@@ -39,7 +39,7 @@ const Faq = () => {
 	return (
 		<div className='text-center justify-center items-center flex flex-col mt-12 p-3 max-w-[1240px] mx-auto w-full'>
 			<SectionTitle title='FAQ' />
-			<h1 className='font-manrope text-4xl text-center leading-[3.3rem]'>
+			<h1 className='font-manrope text-2xl md:text-4xl text-center md:leading-[3.3rem]'>
 				We've got answers to all your questions
 			</h1>
 

@@ -3,9 +3,9 @@ import { CircleArrowRight } from "lucide-react";
 
 export default function NavBar() {
 	return (
-		<nav className='flex justify-between items-center h-[10vh] fixed w-full top-0 left-0 px-8 z-20 backdrop-blur-lg border-b border-b-gray-800'>
+		<nav className='flex justify-between items-center h-[10vh] fixed w-full top-0 left-0 md:px-8 px-4 z-20 backdrop-blur-lg border-b border-b-gray-800'>
 			<NavLink
-				className=''
+				className='sm:w-8 w-6'
 				to='/'>
 				<img
 					src='/Images/logo.svg'
@@ -13,7 +13,7 @@ export default function NavBar() {
 					className=''
 				/>
 			</NavLink>
-			<div className=' flex items-center justify-center gap-12  absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
+			<div className=' items-center justify-center gap-12  absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:flex hidden'>
 				<NavLink
 					to='/'
 					className='text-sm text-gray-400'>
