@@ -18,6 +18,7 @@ import {
 	ChartTooltipContent,
 } from "@/components/ui/chart";
 import { cn } from "@/lib/utils";
+import { useEffect, useState } from "react";
 
 export const description = "A bar chart with a label";
 
@@ -50,10 +51,30 @@ type BarCharProps = {
 	cardHeaderStyles?: string;
 };
 export function BarChartAnalytics(props: BarCharProps) {
+	const [barCharData, setBarCharData] = useState(chartData);
+	const [barSize, setBarSize] = useState(10);
+
+	useEffect(() => {
+		const handleResize = () => {
+			// Get only the last 4 items from the data array
+			const lastFourMonths = barCharData.slice(-7);
+			setBarCharData(
+				window.innerWidth >= 900 ? barCharData : lastFourMonths
+			);
+			setBarSize(window.innerWidth >= 900 ? 10 : 6);
+		};
+
+		handleResize();
+
+		window.addEventListener("resize", handleResize);
+
+		return () => window.removeEventListener("resize", handleResize);
+	}, [barCharData]);
+
 	return (
 		<Card
 			className={cn(
-				"w-full flex flex-col p-0 justify-between bg-transparent h-full border border-[#636363]",
+				"w-full flex flex-col p-0 justify-between bg-transparent h-full border border-[#636363] barchart__analytics",
 				props.cardStyles
 			)}>
 			<CardHeader className={cn(props.cardHeaderStyles)}>
@@ -66,7 +87,7 @@ export function BarChartAnalytics(props: BarCharProps) {
 					config={chartConfig}>
 					<BarChart
 						accessibilityLayer
-						data={chartData}
+						data={barCharData}
 						margin={{
 							top: 20,
 						}}>
@@ -89,7 +110,7 @@ export function BarChartAnalytics(props: BarCharProps) {
 							dataKey='desktop'
 							fill='var(--color-desktop)'
 							radius={8}
-							barSize={10}>
+							barSize={barSize}>
 							<LabelList
 								position='top'
 								offset={12}

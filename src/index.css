@@ -91,6 +91,29 @@ aside {
 		grid-row: 2/-1;
 	}
 }
+
+@media screen and (max-width: 768px) {
+	.dashboard__layout {
+		grid-template-columns: 100%;
+		grid-template-rows: 10vh auto;
+
+		aside {
+			grid-row: 2/3;
+			grid-column: 1/-1;
+			display: none;
+		}
+
+		header {
+			grid-row: 1/2;
+			grid-column: 1/-1;
+		}
+
+		.outlet {
+			grid-column: 1/-1;
+			grid-row: 2/-1;
+		}
+	}
+}
 .logo__container {
 	height: calc(100% + 3rem);
 }

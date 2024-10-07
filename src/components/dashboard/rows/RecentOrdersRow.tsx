@@ -9,20 +9,22 @@ type RecentOrdersRowProps = {
 
 function RecentOrderRow(props: RecentOrdersRowProps) {
 	return (
-		<TableRow className='grid grid-cols-7 items-center'>
+		<TableRow className='grid grid-cols-3  md:grid-cols-7 items-center'>
 			<TableCell className=' flex gap-3 items-center'>
 				<img
 					src='/Icons/avatar.svg'
 					alt=''
-					className='w-12'
+					className='w-12 hidden md:block'
 				/>
-				<p>Anioke Sebastain</p>
+				<p className='text-[.8rem]'>Anioke Sebastian</p>
 			</TableCell>
-			<TableCell>aniokechukwdi7@gmail.com</TableCell>
-			<TableCell>
+			<TableCell className='hidden md:block'>
+				aniokechukwdi7@gmail.com
+			</TableCell>
+			<TableCell className='hidden md:block'>
 				<OrderStatus status='pending' />
 			</TableCell>
-			<TableCell className='  flex  items-center gap-2'>
+			<TableCell className='   items-center gap-2 hidden md:flex'>
 				{props.walletAddress ? (
 					<Fragment>
 						<Wallet />
@@ -40,13 +42,13 @@ function RecentOrderRow(props: RecentOrdersRowProps) {
 				)}
 			</TableCell>
 
-			<TableCell>Apr 12, 6:09AM</TableCell>
+			<TableCell className='hidden md:block'>Apr 12, 6:09AM</TableCell>
 			<TableCell>07</TableCell>
-			<TableCell className=' flex items-center gap-2 '>
+			<TableCell className=' flex items-center gap-1 md:gap-2'>
 				<img
 					src='/Icons/solana.svg'
 					alt=''
-					className='w-10'
+					className='w-6 md:w-10'
 				/>
 				250.00
 			</TableCell>

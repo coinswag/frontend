@@ -59,7 +59,7 @@ export function PieChartAnalytics() {
 	}, []);
 
 	return (
-		<Card className='flex flex-col bg-transparent w-full border border-[#636363] justify-between'>
+		<Card className='flex flex-col bg-transparent w-full border border-[#636363] justify-between piechart__analytics'>
 			<CardHeader className='items-center pb-0'>
 				<CardTitle className='text-xl font-semibold '>
 					Most Sold Merch

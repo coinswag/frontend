@@ -8,9 +8,20 @@ input[type="color"]::-webkit-color-swatch {
 
 .analytics {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(13, 1fr);
 	gap: 1.2rem;
 
+	.piechart__analytics {
+		grid-column: 11/14;
+	}
+
+	.total__revenue {
+		grid-column: 1/4;
+	}
+
+	.barchart__analytics {
+		grid-column: 4/11;
+	}
 	& > div {
 		border-radius: 0.8rem;
 	}
@@ -45,5 +56,21 @@ input[type="color"]::-webkit-color-swatch {
 	}
 	50% {
 		transform: translateY(-20px);
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.analytics {
+		display: flex;
+		flex-direction: column;
+
+		.piechart__analytics {
+		}
+
+		.total__revenue {
+		}
+
+		.barchart__analytics {
+		}
 	}
 }

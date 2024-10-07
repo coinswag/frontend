@@ -9,7 +9,7 @@ import { WalletMinimal, TrendingUp } from "lucide-react";
 
 function TotalRevenue() {
 	return (
-		<Card className='w-full  bg-violet-300 flex flex-col justify-between '>
+		<Card className='w-full  bg-violet-300 flex flex-col justify-between total__revenue '>
 			<CardHeader className='flex gap-3 items-center'>
 				<WalletMinimal
 					color='#808080'
@@ -31,7 +31,7 @@ function TotalRevenue() {
 				/>
 			</CardContent>
 			<CardFooter className='flex-col items-start gap-2 text-sm'>
-				<h2 className='text-3xl flex  items-center'>
+				<h2 className='text-3xl font-semibold  flex  items-center'>
 					$23,000 <TrendingUp className='w-9 ml-4' />{" "}
 					<span className='text-sm'>+12%</span>
 				</h2>
