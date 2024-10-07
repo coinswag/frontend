@@ -10,7 +10,7 @@ const SectionTitle = ({ title }: SectionTitle) => {
 				alt='sparkle'
 				className='brightness-200 w-6'
 			/>
-			<h1 className=' text-[20px]  text-[#4f46e5] brightness-200'>
+			<h1 className=' text-sm md:text-[20px]  text-[#4f46e5] brightness-200'>
 				{title}
 			</h1>
 			<img

@@ -14,6 +14,7 @@ const TopStoreCard = (props: TopStoreCardProps) => {
 			key={index}
 			stroke={index < props.rating ? "none" : "gray"}
 			fill={index < props.rating ? "#fac55a" : "none"}
+			className='w-4 h-4 md:w-6 md:h-6'
 		/>
 	));
 
@@ -23,14 +24,14 @@ const TopStoreCard = (props: TopStoreCardProps) => {
 				<img
 					src={props.src}
 					alt=''
-					className='w-11'
+					className='w-8 md:w-11'
 				/>
-				<h2 className='text-gray-300 font-bold text-2xl font-manrope'>
+				<h2 className='text-gray-300 font-bold text-xl md:text-2xl font-manrope'>
 					{props.title}
 				</h2>
 			</div>
 
-			<p className='text-xl  my-6 text-gray-500 '>{`"${props.description}"`}</p>
+			<p className='md:text-xl text-md my-4 md:my-6 text-gray-500 '>{`"${props.description}"`}</p>
 			<div className='flex justify-center items-center '>{stars}</div>
 			<p className='text-sm text-gray-500'>{props.creator}</p>
 		</article>

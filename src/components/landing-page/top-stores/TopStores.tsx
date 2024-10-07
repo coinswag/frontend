@@ -31,11 +31,11 @@ const TopStories = () => {
 	return (
 		<section className=' bg-center mx-auto flex flex-col items-center justify-center w-[80%] my-[8rem]'>
 			<SectionTitle title='Top Stories' />
-			<h1 className='font-manrope text-4xl text-center leading-[3.3rem]'>
-				Here πare our top-rated stores
+			<h1 className='font-manrope text-2xl md:text-4xl text-center md:leading-[3.3rem]'>
+				Here are our top-rated stores
 			</h1>
 
-			<div className='flex  justify-center items-center mt-9 gap-12'>
+			<div className='flex flex-col md:flex-row  justify-center items-center mt-9 gap-12'>
 				{userStores.map((store, index) => (
 					<TopStoreCard
 						key={index}
