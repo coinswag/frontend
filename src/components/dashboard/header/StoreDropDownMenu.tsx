@@ -63,7 +63,7 @@ function StoreDropDownMenu() {
 						<img
 							src={`/Icons/${selectedTeam.img}`}
 							alt=''
-							className='w-10 mr-1'
+							className='w-8 mr-1'
 						/>
 						<div className='bg-neutral-800 flex gap-2 px-3 rounded-xl items-center'>
 							<p className='text-sm'>{selectedTeam.label}</p>

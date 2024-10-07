@@ -23,7 +23,7 @@ function SharedDashboardLayout() {
 			<div className='dashboard__layout bg-primary'>
 				<Header />
 				<NavBar />
-				<div className='outlet px-5 md:px-8 py-4 overflow-y-auto'>
+				<div className='outlet px-5	 md:px-8 py-4 overflow-y-auto'>
 					<Outlet />
 				</div>
 			</div>

@@ -24,7 +24,7 @@ function CheckoutReceipt() {
 				<ul className='border-b border-b-borderColor  pb-4 [&>li]:mb-3 [&>li]:px-4 [&>li]:text-sm'>
 					{cartItems.map((item) => (
 						<li
-							key={item.id}
+							key={item._id}
 							className='flex items-center justify-between'>
 							<p className='w-2/3 truncate'>
 								{item.quantity} {item.name}

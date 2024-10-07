@@ -6,7 +6,7 @@ import UserProfileDropDownMenu from "./UserProfileDropDownMenu";
 function Header() {
 	return (
 		<header className='flex justify-between items-center  px-8 bg-[#111111] border-b border-b-[#272727]'>
-			<span className='border border-borderColor rounded-[.5rem] p-1 '>
+			<span className='border border-borderColor rounded-[.5rem] p-1  block md:hidden'>
 				<AlignJustify
 					className='w-8 h-8'
 					color='#f0f0f5'

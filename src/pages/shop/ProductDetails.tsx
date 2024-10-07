@@ -21,7 +21,7 @@ function ProductDetails() {
 		/>
 	));
 
-	const [currentImage, setCurrentImage] = useState(currentMerch?.src[0]);
+	const [currentImage, setCurrentImage] = useState(currentMerch?.images[0]);
 
 	const [quantity, setQuantity] = useState(1);
 
@@ -52,7 +52,7 @@ function ProductDetails() {
 				<div
 					className={cn(
 						"h-[37rem] relative w-[80%] ml-auto rounded-2xl p-8",
-						currentMerch?.bgGradient
+						"bg-gray-400"
 					)}>
 					<img
 						src={currentImage}
@@ -60,7 +60,7 @@ function ProductDetails() {
 						className='h-full object-cover  rounded-xl'
 					/>
 					<div className='absolute flex items-center gap-5 w-[80%] ml-auto top-[103%] left-0'>
-						{currentMerch?.src.map((src, index) => (
+						{currentMerch?.images.map((src, index) => (
 							<img
 								key={index}
 								src={src}
@@ -100,19 +100,21 @@ function ProductDetails() {
 					<div className='border-t border-t-borderColor mt-4'>
 						<p className='text-gray-500 text-sm my-3'>size</p>
 						<div className='flex items-center gap-4'>
-							{currentMerch?.sizes.map((size, index) => (
+							{currentMerch?.variants.map((variant, index) => (
 								<div
 									key={index}
 									className={sizeElementStypes}>
-									{size}
+									{variant.size}
 								</div>
 							))}
 						</div>
 					</div>
 					<h2 className='text-gray-400 my-5'>
 						Availability:{" "}
-						<span className='font-bold'>{currentMerch?.stock}</span> in
-						stock
+						<span className='font-bold'>
+							{currentMerch?.variants[0].quantity}
+						</span>{" "}
+						in stock
 					</h2>
 
 					<div className='flex gap-12 items-center'>
