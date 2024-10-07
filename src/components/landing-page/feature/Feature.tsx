@@ -31,9 +31,10 @@ const Feature = () => {
 				Top-notch designs, <br /> delivered at your doorsteps
 			</h1>
 			<div className='   grid grid-cols-1  md:grid-cols-3 justify-center items-center mt-9 gap-12'>
-				{featuresArray.map((feature) => (
+				{featuresArray.map((feature, index) => (
 					<FeatureCard
 						src={feature.src}
+						key={index}
 						title={feature.title}
 						description={feature.description}
 					/>

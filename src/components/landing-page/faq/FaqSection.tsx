@@ -44,8 +44,9 @@ const Faq = () => {
 			</h1>
 
 			<div className=' md:p-3 p-2 md:w-3/4 w-full space-y-7 mt-5'>
-				{faqArray.map((faq) => (
+				{faqArray.map((faq, index) => (
 					<Question
+						key={index}
 						question={faq.question}
 						answer={faq.answer}
 					/>

@@ -3,9 +3,10 @@ import { ShoppingBag } from "lucide-react";
 
 import { useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
+import { ConnectButton } from "@particle-network/connectkit";
 
 type SharedShopLayoutProps = {
-	subdomain: string;
+	subdomain?: string;
 };
 
 const ScrollToTop = () => {
@@ -35,9 +36,7 @@ function SharedShopLayout(props: SharedShopLayoutProps) {
 				</Link>
 				<h1>Shop</h1>
 				<div className='flex items-center gap-8'>
-					<button className='text-sm bg-white text-black px-4 py-3 rounded-[.6rem]'>
-						Connect Wallet
-					</button>
+					<ConnectButton label='Connect Wallet'></ConnectButton>
 					<Link
 						to='/shop/cart'
 						className='relative'>

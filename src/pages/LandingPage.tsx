@@ -10,19 +10,19 @@ import TopMerches from "@/components/landing-page/top-merches/TopMerches";
 import Review from "@/components/landing-page/Review";
 
 function LandingPage() {
-	return (
-		<div>
-			<Navbar />
-			<Hero />
-			<AboutPage />
-			<Feature />
-			<TopStories />
-			<TopMerches />
-			<Review />
-			<Faq />
-			<GetStarted />
-			<Footer />
-		</div>
-	);
+  return (
+    <div>
+      <Navbar />
+      <Hero />
+      <AboutPage />
+      <Feature />
+      <TopStories />
+      <TopMerches />
+      <Review />
+      <Faq />
+      <GetStarted />
+      <Footer />
+    </div>
+  );
 }
 export default LandingPage;

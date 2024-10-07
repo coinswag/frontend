@@ -1,6 +1,19 @@
-import useCartProducts from "@/lib/zustand/useCartProducts";
-import { useState, useEffect } from "react";
-
+// import { createOrder } from "@/actions/api/shop";
+// import useCartProducts from "@/lib/zustand/useCartProducts";
+// import {
+//   SolanaChain,
+//   usePublicClient,
+//   useWallets,
+// } from "@particle-network/connectkit";
+// import {
+//   LAMPORTS_PER_SOL,
+//   PublicKey,
+//   SystemProgram,
+//   Transaction,
+// } from "@solana/web3.js";
+// import { useState } from "react";
+// import toast from "react-hot-toast";
+import { useState } from "react";
 // import {
 // emptyCart,
 // selectCartItems,
@@ -23,28 +36,107 @@ import { useNavigate } from "react-router-dom";
 
 function CheckoutForm() {
 	const navigate = useNavigate();
+	//   const { cartItems } = useCartProducts();
 
-	const { cartItems } = useCartProducts();
-
-	const [cartItemTotalPrice, setCartItemTotalPrice] = useState(0);
+	const [cartItemTotalPrice] = useState(0);
 
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
 	const [phoneNumber, setPhoneNumber] = useState("");
+	// const [primaryWallet] = useWallets();
+	// const solanaWallet = primaryWallet.getWalletClient<SolanaChain>();
+	// const publicClient = usePublicClient<SolanaChain>();
 
-	useEffect(() => {
-		const total = cartItems.reduce(
-			(acc, item) => acc + item.price * item.quantity,
-			0
-		);
-		setCartItemTotalPrice(total);
-	}, [cartItems]);
+	// useEffect(() => {
+	//   const total = cartItems.reduce(
+	//     (acc, item) => acc + item.price * item.quantity,
+	//     0
+	//   );
+	//   setCartItemTotalPrice(total);
+	// }, [cartItems]);
 
-	const handleDeposit = () => {
-		//IF USER IS NOT CONNECTED TO METAMASK
-		console.log("Deposit");
-	};
+	// const executeTx = async () => {
+	//   const publicKey = solanaWallet.publicKey;
+	//   // Prepare the transaction object
+	//   const tx = new Transaction();
+	//   tx.add(
+	//     SystemProgram.transfer({
+	//       fromPubkey: publicKey,
+	//       toPubkey: new PublicKey("E5HmSiV9XjnGj6y9KogyHx3U7Q9GzcpRfRZrwosqEL8A"),
+	//       lamports: LAMPORTS_PER_SOL * (cartItemTotalPrice / 1000),
+	//     })
+	//   );
+
+	//   const { blockhash, lastValidBlockHeight } =
+	//     await publicClient!.getLatestBlockhash({
+	//       commitment: "finalized",
+	//     });
+
+	//   tx.recentBlockhash = blockhash;
+	//   tx.lastValidBlockHeight = lastValidBlockHeight;
+	//   tx.feePayer = publicKey;
+
+	//   const transactionResponse = await solanaWallet.sendTransaction(tx);
+	//   console.log("Transaction sent:", transactionResponse);
+	// };
+
+	// const handleDeposit = async () => {
+	//   if (!solanaWallet) {
+	//     toast.error("Please connect your wallet first");
+	//     return;
+	//   }
+
+	//   try {
+	//     executeTx();
+	//     // Create order
+	//     const orderData = {
+	//       storeId: "your_store_id", // Replace with actual store ID
+	//       totalAmount: cartItemTotalPrice,
+	//       tokenId: "SOL",
+	//       txhash: signature,
+	//       customer: {
+	//         customerId: solanaWallet.publicKey.toString(),
+	//         firstName,
+	//         lastName,
+	//         email,
+	//         phone: phoneNumber,
+	//       },
+	//       shippingInfo: {
+	//         method: "standard",
+	//         trackingNumber: "",
+	//         address: {
+	//           street: "", // Add a state for address
+	//           city: "",
+	//           state: "",
+	//           postalCode: "",
+	//           country: "",
+	//         },
+	//       },
+	//       priceBreakdown: {
+	//         subtotal: cartItemTotalPrice,
+	//         tax: 0,
+	//         shippingCost: 0,
+	//         discount: 0,
+	//         total: cartItemTotalPrice,
+	//       },
+	//       cart: JSON.stringify(cartItems),
+	//       store: "your_store_id", // Replace with actual store ID
+	//     };
+
+	//     const orderResponse = await createOrder(orderData);
+
+	//     if (orderResponse.status === 200) {
+	//       toast.success("Payment successful and order created!");
+	//       navigate("/order-confirmation");
+	//     } else {
+	//       toast.error("Failed to create order. Please contact support.");
+	//     }
+	//   } catch (error) {
+	//     console.error("Transaction failed", error);
+	//     toast.error("Transaction failed. Please try again.");
+	//   }
+	// };
 
 	return (
 		<form
@@ -140,7 +232,7 @@ function CheckoutForm() {
         )} */}
 
 				<button
-					onClick={handleDeposit}
+					// onClick={() => handleDeposit()}
 					className='w-full rounded border-2 border-blue-500 bg-blue-500 py-3 text-center font-bold text-white opacity-70'>
 					Deposit -{cartItemTotalPrice} USDC
 				</button>
