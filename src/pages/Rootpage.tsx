@@ -1,4 +1,4 @@
-import { Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import LandingPage from "./LandingPage";
 
 import ShopRoutes from "./shop/ShopRoutes";
@@ -16,10 +16,12 @@ function RootPage() {
 			{subdomain ? (
 				<ShopRoutes subdomain={subdomain} />
 			) : (
-				<Route
-					index
-					element={<LandingPage />}
-				/>
+				<Routes>
+					<Route
+						index
+						element={<LandingPage />}
+					/>
+				</Routes>
 			)}
 		</>
 	);
