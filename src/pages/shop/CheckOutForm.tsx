@@ -1,18 +1,18 @@
 import { createOrder } from "@/actions/api/shop";
 import useCartProducts from "@/lib/zustand/useCartProducts";
-import {
-  SolanaChain,
-  usePublicClient,
-  useWallets,
-} from "@particle-network/connectkit";
-import {
-  LAMPORTS_PER_SOL,
-  PublicKey,
-  SystemProgram,
-  Transaction,
-} from "@solana/web3.js";
+// import {
+//   SolanaChain,
+//   usePublicClient,
+//   useWallets,
+// } from "@particle-network/connectkit";
+// import {
+//   LAMPORTS_PER_SOL,
+//   PublicKey,
+//   SystemProgram,
+//   Transaction,
+// } from "@solana/web3.js";
 import { useState, useEffect } from "react";
-import toast from "react-hot-toast";
+// import toast from "react-hot-toast";
 
 // import {
 // emptyCart,
@@ -21,8 +21,6 @@ import toast from "react-hot-toast";
 // } from "../redux/cart/cart.slice";
 
 import { useNavigate } from "react-router-dom";
-
-// import { PaystackButton } from "react-paystack";
 
 // const sampleSuccess = {
 //   message: "Approved",
@@ -48,13 +46,13 @@ function CheckoutForm() {
   // const solanaWallet = primaryWallet.getWalletClient<SolanaChain>();
   // const publicClient = usePublicClient<SolanaChain>();
 
-  // useEffect(() => {
-  //   const total = cartItems.reduce(
-  //     (acc, item) => acc + item.price * item.quantity,
-  //     0
-  //   );
-  //   setCartItemTotalPrice(total);
-  // }, [cartItems]);
+  useEffect(() => {
+    const total = cartItems.reduce(
+      (acc, item) => acc + item.price * item.quantity,
+      0
+    );
+    setCartItemTotalPrice(total);
+  }, [cartItems]);
 
   // const executeTx = async () => {
   //   const publicKey = solanaWallet.publicKey;
