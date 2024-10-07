@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import LandingPage from "./LandingPage";
 
-import SharedShopLayout from "./shop/SharedShopLayout";
+import ShopRoutes from "./shop/ShopRoutes";
 
 function RootPage() {
 	const hostname = window.location.hostname;
@@ -13,10 +13,7 @@ function RootPage() {
 		<Routes>
 			{" "}
 			{subdomain ? (
-				<Route
-					index
-					element={<SharedShopLayout subdomain={subdomain} />}
-				/>
+				<ShopRoutes subdomain={subdomain} />
 			) : (
 				<Route
 					index

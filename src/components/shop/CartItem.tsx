@@ -11,15 +11,15 @@ function CartItem(props: CartItemProps) {
 
 	const handleIncreaseBtn = () => {
 		if (props.quantity >= 10) return;
-		updateCartItemQuantity(props.id, props.quantity + 1);
+		updateCartItemQuantity(props._id, props.quantity + 1);
 	};
 	const handleDecreaseBtn = () => {
 		if (props.quantity === 1) return;
 
-		updateCartItemQuantity(props.id, props.quantity - 1);
+		updateCartItemQuantity(props._id, props.quantity - 1);
 	};
 	const handleRemoveCartItem = () => {
-		removeCartItem(props.id);
+		removeCartItem(props._id);
 	};
 
 	return (
@@ -27,7 +27,7 @@ function CartItem(props: CartItemProps) {
 			<div className='relative flex gap-4'>
 				<img
 					className='block h-20 w-24 object-cover object-top brightness-90'
-					src={props.src[0]}
+					src={props.images[0]}
 					alt={props.description}
 				/>
 				<p className='absolute left-12 top-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-white md:hidden '>
@@ -58,7 +58,9 @@ function CartItem(props: CartItemProps) {
 					onClick={handleIncreaseBtn}
 				/>
 			</div>
-			<div className='text-sm text-gray-500'>{props.sizes.join(",")}</div>
+			<div className='text-sm text-gray-500'>
+				{props.variants.map((variants) => variants.size).join(",")}
+			</div>
 			<button
 				onClick={handleRemoveCartItem}
 				className='h-7 w-7 border border-borderColor rounded-full  bg-secondary p-[.3rem] flex justify-center items-center'>
