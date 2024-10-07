@@ -39,7 +39,7 @@ const config = createConfig({
     hideContinueButton: false, // Optional, remove "Continue" button underneath Email or phone number entry
     connectorsOrder: ["email", "phone", "social", "wallet"], //  Optional, sort connection methods (index 0 will be placed at the top)
     language: "en-US", // Optional, also supported ja-JP, zh-CN, zh-TW, and ko-KR
-    mode: "light", // Optional, changes theme between light, dark, or auto (which will change it based on system settings)
+    mode: "dark", // Optional, changes theme between light, dark, or auto (which will change it based on system settings)
     theme: {
       "--pcm-accent-color": "#ff4d4f",
       // ... other options
@@ -95,7 +95,7 @@ const config = createConfig({
   plugins: [
     wallet({
       // Optional configurations for the attached embedded wallet modal
-      entryPosition: EntryPosition.BR, // Alters the position in which the modal button appears upon login
+      entryPosition: EntryPosition.BL, // Alters the position in which the modal button appears upon login
       visible: true, // Dictates whether or not the wallet modal is included/visible or not
     }),
   ],
