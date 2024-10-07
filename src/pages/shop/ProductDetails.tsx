@@ -51,7 +51,7 @@ function ProductDetails() {
 			<section className='grid grid-cols-2 gap-12 mt-12 px-8 '>
 				<div
 					className={cn(
-						"h-[37rem] relative w-[80%] ml-auto rounded-2xl p-8",
+						"h-[37rem] relative w-[67%] ml-auto rounded-2xl p-8",
 						"bg-gray-400"
 					)}>
 					<img
@@ -71,7 +71,7 @@ function ProductDetails() {
 						))}
 					</div>
 				</div>
-				<div className='w-[67%] mt-8'>
+				<div className='md:w-full lg:w-[67%] mt-8'>
 					{/* <p className='text-gray-900 text-sm bg-gray-500 w-fit px-5 rounded-xl'>
 						In Stock
 					</p> */}
@@ -91,8 +91,8 @@ function ProductDetails() {
 							{currentMerch?.colors.map((color, index) => (
 								<div
 									key={index}
-									style={{ background: color }}
-									className='w-7 h-7 rounded-full bg-blue-300 border border-borderColor'
+									style={{ background: `${color}3` }}
+									className='w-7 h-7 rounded-full border border-borderColor'
 								/>
 							))}
 						</div>
@@ -141,7 +141,7 @@ function ProductDetails() {
 					</div>
 				</div>
 			</section>
-			<section className='mt-[10rem] w-[90%] mx-auto mb-8'>
+			<section className='mt-[10rem] w-[90%] mx-auto mb-8 boder'>
 				<h1 className='font-manrope text-3xl'>More Products</h1>
 				<div className='mt-12 grid grid-cols-auto-fill-minmax gap-12 justify-center'>
 					{similarMerches}

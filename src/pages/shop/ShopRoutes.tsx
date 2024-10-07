@@ -1,4 +1,4 @@
-import { Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import SharedShopLayout from "./SharedShopLayout";
 import ProductOverveiw from "./ProductOverveiw";
 import ProductDetails from "./ProductDetails";
@@ -11,26 +11,28 @@ type ShopRoutesProps = {
 function ShopRoutes(props: ShopRoutesProps) {
 	console.log(props.subdomain);
 	return (
-		<Route
-			path='/shop'
-			element={<SharedShopLayout />}>
+		<Routes>
 			<Route
-				index
-				element={<ProductOverveiw />}
-			/>
-			<Route
-				path='product/:id'
-				element={<ProductDetails />}
-			/>
-			<Route
-				path='cart'
-				element={<Cart />}
-			/>
-			<Route
-				path='checkout'
-				element={<Checkout />}
-			/>
-		</Route>
+				path='/*'
+				element={<SharedShopLayout />}>
+				<Route
+					index
+					element={<ProductOverveiw />}
+				/>
+				<Route
+					path='product/:id'
+					element={<ProductDetails />}
+				/>
+				<Route
+					path='cart'
+					element={<Cart />}
+				/>
+				<Route
+					path='checkout'
+					element={<Checkout />}
+				/>
+			</Route>
+		</Routes>
 	);
 }
 export default ShopRoutes;

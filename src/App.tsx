@@ -8,8 +8,6 @@ import Settings from "./pages/dashboard/Settings";
 import Products from "./pages/dashboard/Products";
 import OrderDetails from "./pages/dashboard/OrderDetails";
 
-import LandingPage from "./pages/LandingPage";
-
 import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";
 import Otp from "./pages/auth/Otp";
@@ -18,11 +16,12 @@ import SharedDashboardLayout from "./pages/dashboard/SharedDashboardLayout";
 import { Toaster } from "react-hot-toast";
 
 import Providers from "./components/providers";
+import RootPage from "./pages/Rootpage";
 
 const router = createBrowserRouter([
 	{
-		path: "/",
-		element: <LandingPage />,
+		path: "/*",
+		element: <RootPage />,
 	},
 	{
 		path: "/register",
