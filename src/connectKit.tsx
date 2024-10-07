@@ -96,7 +96,7 @@ const config = createConfig({
     wallet({
       // Optional configurations for the attached embedded wallet modal
       entryPosition: EntryPosition.BL, // Alters the position in which the modal button appears upon login
-      visible: true, // Dictates whether or not the wallet modal is included/visible or not
+      visible: false, // Dictates whether or not the wallet modal is included/visible or not
     }),
   ],
   chains: [solana],
