@@ -57,8 +57,8 @@ export function BarChartAnalytics(props: BarCharProps) {
 				props.cardStyles
 			)}>
 			<CardHeader className={cn(props.cardHeaderStyles)}>
-				<CardTitle>Bar Chart - Label</CardTitle>
-				<CardDescription>January - June 2024</CardDescription>
+				<CardTitle>Orders per month</CardTitle>
+				<CardDescription>January - December 2024</CardDescription>
 			</CardHeader>
 			<CardContent className={cn(props.cardContentStyles)}>
 				<ChartContainer
@@ -102,8 +102,7 @@ export function BarChartAnalytics(props: BarCharProps) {
 			</CardContent>
 			<CardFooter className='flex-col items-start gap-2 text-sm'>
 				<div className='flex gap-2 font-medium leading-none'>
-					Trending up by 5.2% this month{" "}
-					<TrendingUp className='h-4 w-4' />
+					Trending up by 5.2% this month <TrendingUp className='h-4 w-4' />
 				</div>
 				<div className='leading-none text-muted-foreground'>
 					Showing total visitors for the last 6 months

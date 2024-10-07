@@ -6,7 +6,7 @@ import RecentOrders from "../../components/dashboard/tables/RecentOrders";
 function Overview() {
 	return (
 		<div className=''>
-			<p className='text-sm my-8'>Analytics</p>
+			<p className='text-sm my-8'>Overview</p>
 			<div className='analytics'>
 				<TotalRevenue />
 				<BarChartAnalytics chartStyles='h-[18rem] w-[45rem]' />

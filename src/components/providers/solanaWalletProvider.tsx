@@ -58,3 +58,9 @@
 //     </ConnectionProvider>
 //   );
 // }
+
+const SolanaWalletProvider = () => {
+	return <div></div>;
+};
+
+export default SolanaWalletProvider;

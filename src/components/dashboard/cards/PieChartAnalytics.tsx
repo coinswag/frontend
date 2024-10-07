@@ -61,7 +61,9 @@ export function PieChartAnalytics() {
 	return (
 		<Card className='flex flex-col bg-transparent w-full border border-[#636363] justify-between'>
 			<CardHeader className='items-center pb-0'>
-				<CardTitle>Pie Chart - Donut with Text</CardTitle>
+				<CardTitle className='text-xl font-semibold '>
+					Most Sold Merch
+				</CardTitle>
 				<CardDescription>January - June 2024</CardDescription>
 			</CardHeader>
 			<CardContent className=''>
@@ -81,11 +83,7 @@ export function PieChartAnalytics() {
 							strokeWidth={5}>
 							<Label
 								content={({ viewBox }) => {
-									if (
-										viewBox &&
-										"cx" in viewBox &&
-										"cy" in viewBox
-									) {
+									if (viewBox && "cx" in viewBox && "cy" in viewBox) {
 										return (
 											<text
 												x={viewBox.cx}
@@ -121,11 +119,10 @@ export function PieChartAnalytics() {
 			</CardContent>
 			<CardFooter className='flex-col gap-2 text-sm'>
 				<div className='flex items-center gap-2 font-medium leading-none'>
-					Trending up by 5.2% this month{" "}
-					<TrendingUp className='h-4 w-4' />
+					Trending up by 5.2% this month <TrendingUp className='h-4 w-4' />
 				</div>
 				<div className='leading-none text-muted-foreground'>
-					Showing total visitors for the last 6 months
+					Showing most sold merch
 				</div>
 			</CardFooter>
 		</Card>

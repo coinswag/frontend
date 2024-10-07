@@ -1,6 +1,7 @@
 import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
 import { ChevronsUpDown, PlusCircleIcon, CheckIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+import NewStore from "./NewStore";
 import {
 	Popover,
 	PopoverContent,
@@ -128,7 +129,9 @@ function StoreDropDownMenu() {
 					</Command>
 				</PopoverContent>
 			</Popover>
-			<DialogContent></DialogContent>
+			<DialogContent>
+				<NewStore />
+			</DialogContent>
 		</Dialog>
 	);
 }
