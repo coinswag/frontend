@@ -71,12 +71,12 @@ const useCartProducts = create<CartProductState>((set, get) => ({
 	addCartItem: (newItem) =>
 		set((state) => {
 			const existingItem = state.cartItems.find(
-				(item) => item.id === newItem.id
+				(item) => item._id === newItem._id
 			);
 			if (existingItem) {
 				return {
 					cartItems: state.cartItems.map((item) =>
-						item.id === newItem.id
+						item._id === newItem._id
 							? { ...item, quantity: item.quantity + 1 }
 							: item
 					),
@@ -89,13 +89,13 @@ const useCartProducts = create<CartProductState>((set, get) => ({
 
 	removeCartItem: (id) =>
 		set((state) => ({
-			cartItems: state.cartItems.filter((item) => item.id !== id),
+			cartItems: state.cartItems.filter((item) => item._id !== id),
 		})),
 
 	updateCartItemQuantity: (id, quantity) =>
 		set((state) => ({
 			cartItems: state.cartItems.map((item) =>
-				item.id === id ? { ...item, quantity } : item
+				item._id === id ? { ...item, quantity } : item
 			),
 		})),
 

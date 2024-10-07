@@ -12,7 +12,6 @@ function OrderSummary() {
 			(acc, item) => acc + item.price * item.quantity,
 			0
 		);
-		console.log("me");
 		setCartItemTotalPrice(total);
 	}, [cartItems]);
 

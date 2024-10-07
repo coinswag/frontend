@@ -48,8 +48,8 @@ function ProductDetails() {
       <section className="grid grid-cols-2 gap-12 mt-12 px-8 ">
         <div
           className={cn(
-            "h-[37rem] relative w-[80%] ml-auto rounded-2xl p-8",
-            currentMerch?.colors
+            "h-[37rem] relative w-[67%] ml-auto rounded-2xl p-8",
+            "bg-gray-400"
           )}
         >
           <img
@@ -69,7 +69,7 @@ function ProductDetails() {
             ))}
           </div>
         </div>
-        <div className="w-[67%] mt-8">
+        <div className="md:w-full lg:w-[67%] mt-8">
           {/* <p className='text-gray-900 text-sm bg-gray-500 w-fit px-5 rounded-xl'>
 						In Stock
 					</p> */}
@@ -87,8 +87,8 @@ function ProductDetails() {
               {currentMerch?.colors.map((color, index) => (
                 <div
                   key={index}
-                  style={{ background: color }}
-                  className="w-7 h-7 rounded-full bg-blue-300 border border-borderColor"
+                  style={{ background: `${color}3` }}
+                  className="w-7 h-7 rounded-full border border-borderColor"
                 />
               ))}
             </div>
@@ -96,15 +96,19 @@ function ProductDetails() {
           <div className="border-t border-t-borderColor mt-4">
             <p className="text-gray-500 text-sm my-3">size</p>
             <div className="flex items-center gap-4">
-              {currentMerch?.images.map((size, index) => (
+              {currentMerch?.variants.map((variant, index) => (
                 <div key={index} className={sizeElementStypes}>
-                  {size}
+                  {variant.size}
                 </div>
               ))}
             </div>
           </div>
           <h2 className="text-gray-400 my-5">
-            Availability: <span className="font-bold">{}</span> in stock
+            Availability:{" "}
+            <span className="font-bold">
+              {currentMerch?.variants[0].quantity}
+            </span>{" "}
+            in stock
           </h2>
 
           <div className="flex gap-12 items-center">
@@ -134,7 +138,7 @@ function ProductDetails() {
           </div>
         </div>
       </section>
-      <section className="mt-[10rem] w-[90%] mx-auto mb-8">
+      <section className="mt-[10rem] w-[90%] mx-auto mb-8 boder">
         <h1 className="font-manrope text-3xl">More Products</h1>
         <div className="mt-12 grid grid-cols-auto-fill-minmax gap-12 justify-center">
           {similarMerches}

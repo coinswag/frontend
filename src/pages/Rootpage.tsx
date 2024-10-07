@@ -1,29 +1,29 @@
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import LandingPage from "./LandingPage";
 
-import SharedShopLayout from "./shop/SharedShopLayout";
+import ShopRoutes from "./shop/ShopRoutes";
 
 function RootPage() {
 	const hostname = window.location.hostname;
 	const parts = hostname.split(".");
 	const isSubdomain = parts.length > 2;
-	const subdomain = isSubdomain ? parts[0] : null;
+	const subdomain = isSubdomain ? parts[1] : null;
+	console.log(subdomain, parts);
 
 	return (
-		<Routes>
+		<>
 			{" "}
 			{subdomain ? (
-				<Route
-					index
-					element={<SharedShopLayout subdomain={subdomain} />}
-				/>
+				<ShopRoutes subdomain={subdomain} />
 			) : (
-				<Route
-					index
-					element={<LandingPage />}
-				/>
+				<Routes>
+					<Route
+						index
+						element={<LandingPage />}
+					/>
+				</Routes>
 			)}
-		</Routes>
+		</>
 	);
 }
 export default RootPage;
