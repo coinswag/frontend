@@ -2,12 +2,17 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { CircleArrowRight } from "lucide-react";
 
 import { useConnect } from "@particle-network/authkit";
+import showToast from "@/lib/utils";
 export default function NavBar() {
 	const { connect, connected } = useConnect();
 	const navigate = useNavigate();
 
 	// Handle user login
 	const handleLogin = async () => {
+		if (connected) {
+			navigate("/dashboard");
+			showToast.success("Welcome back");
+		}
 		if (!connected) {
 			const userInfo = await connect({
 				email: "",
