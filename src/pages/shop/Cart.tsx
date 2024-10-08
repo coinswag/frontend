@@ -7,8 +7,8 @@ function Cart() {
 	const { cartItems } = useCartProducts();
 
 	return (
-		<div className='mt-4 justify-between gap-7 px-4 pb-7 md:flex md:px-12'>
-			<div className=' md:w-[74%] '>
+		<div className='mt-4 justify-between gap-7 px-4 pb-7 md:grid grid-cols-checkout_container md:px-12'>
+			<div className=' '>
 				<div className='grid grid-cols-cart_container_sm border-b border-b-borderColor py-4 md:grid-cols-cart_container_md [&>p]:text-[.8rem] [&>p]:text-gray-500'>
 					<p>PRODUCT</p>
 					<p className='hidden md:block'>PRICE</p>

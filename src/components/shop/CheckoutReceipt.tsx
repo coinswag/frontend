@@ -15,7 +15,7 @@ function CheckoutReceipt() {
 	}, [cartItems]);
 
 	return (
-		<div className='sticky  top-[10vh] h-fit md:w-[26%] border border-borderColor'>
+		<div className='sticky  top-[10vh] h-fit  border border-borderColor'>
 			<h2 className='border-b border-b-borderColor  px-4 border border-borderColor py-4 text-xl font-bold text-gray-500'>
 				Order
 			</h2>
@@ -43,13 +43,13 @@ function CheckoutReceipt() {
 					<p className=''>00</p>
 				</div>
 				<div className='flex items-center justify-between'>
-					<p className='text-green-500'>Discount</p>
-					<p className='text-green-500'>00</p>
+					<p className='text-blue-500'>Discount</p>
+					<p className='text-blue-500'>00</p>
 				</div>
 			</div>
 			<div className='flex items-center justify-between bg-secondary px-4 py-3'>
 				<h2 className='font-bold'>Total</h2>
-				<h2 className='font-bold'>{cartItemTotalPrice}</h2>
+				<h2 className='font-bold'>{cartItemTotalPrice} USDC</h2>
 			</div>
 		</div>
 	);

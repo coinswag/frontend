@@ -54,7 +54,7 @@ export default {
 			gridTemplateColumns: {
 				"auto-fill-minmax": "repeat(auto-fill, minmax(19rem, 1fr))",
 				product_container: "repeat(auto-fill, minmax(17rem, 1fr))",
-				checkout_container: "60% 40%",
+				checkout_container: "74% 26%",
 				cart_container_md: "auto 8rem 10rem 8rem 3rem",
 				cart_container_sm: "auto 3rem 2.5rem",
 			},
