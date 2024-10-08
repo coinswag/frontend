@@ -7,7 +7,7 @@ function RootPage() {
 	const hostname = window.location.hostname;
 	const parts = hostname.split(".");
 	const isSubdomain =
-		parts.length > import.meta.env.VITE_DOMAIN_PARTS && parts[0] == "www";
+		parts.length > import.meta.env.VITE_DOMAIN_PARTS && parts[0] !== "www";
 	const subdomain = isSubdomain ? parts[0] : null;
 	console.log(subdomain, parts);
 
