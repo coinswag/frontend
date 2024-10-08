@@ -4,24 +4,26 @@ import LandingPage from "./LandingPage";
 import ShopRoutes from "./shop/ShopRoutes";
 
 function RootPage() {
-  const hostname = window.location.hostname;
-  const parts = hostname.split(".");
-  const isSubdomain = parts.length > 1;
-  const subdomain = isSubdomain ? parts[0] : null;
-  console.log(subdomain, parts);
-  console.log(hostname);
+	const hostname = window.location.hostname;
+	const parts = hostname.split(".");
+	const isSubdomain = parts.length > import.meta.env.VITE_DOMAIN_PARTS;
+	const subdomain = isSubdomain ? parts[0] : null;
+	console.log(subdomain, parts);
 
-  return (
-    <>
-      {" "}
-      {subdomain ? (
-        <ShopRoutes subdomain={subdomain} />
-      ) : (
-        <Routes>
-          <Route index element={<LandingPage />} />
-        </Routes>
-      )}
-    </>
-  );
+	return (
+		<>
+			{" "}
+			{subdomain ? (
+				<ShopRoutes subdomain={subdomain} />
+			) : (
+				<Routes>
+					<Route
+						index
+						element={<LandingPage />}
+					/>
+				</Routes>
+			)}
+		</>
+	);
 }
 export default RootPage;

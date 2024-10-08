@@ -3,25 +3,32 @@ import { TableCell, TableRow } from "@/components/ui/table";
 // type RecentOrdersRowProps = {
 // 	walletAddress?: string;
 // };
+type CustomerRowProps = {
+	name: string;
+	email: string;
+	phone: string;
+	dateJoined: string;
+	ordersCount: number;
+	avatarUrl: string;
+};
 
-function CustomerRow() {
+function CustomerRow(props: CustomerRowProps) {
 	return (
 		<TableRow className='grid grid-cols-7 items-center'>
-			<TableCell className=' flex gap-3 items-center'>
+			<TableCell className='flex gap-3 items-center'>
 				<img
-					src='/Icons/avatar.svg'
+					src={props.avatarUrl}
 					alt=''
 					className='w-12'
 				/>
-				<p>Anioke Sebastain</p>
+				<p>{props.name}</p>
 			</TableCell>
-			<TableCell>aniokechukwdi7@gmail.com</TableCell>
-			<TableCell>+2349030018605</TableCell>
-
-			<TableCell>Apr 12, 6:09AM</TableCell>
-			<TableCell>07</TableCell>
+			<TableCell>{props.email}</TableCell>
+			<TableCell>{props.phone}</TableCell>
+			<TableCell>{props.dateJoined}</TableCell>
+			<TableCell>{props.ordersCount}</TableCell>
 			<TableCell>
-				<button className='rounded-[.5rem] hover:bg-secondary border border-borderColor px-6 text-sm py-[.3rem] '>
+				<button className='rounded-[.5rem] hover:bg-secondary border border-borderColor px-6 text-sm py-[.3rem]'>
 					Create Invoice
 				</button>
 			</TableCell>
@@ -33,4 +40,5 @@ function CustomerRow() {
 		</TableRow>
 	);
 }
+
 export default CustomerRow;

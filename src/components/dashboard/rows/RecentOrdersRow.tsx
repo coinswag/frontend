@@ -1,34 +1,43 @@
 import { TableCell, TableRow } from "@/components/ui/table";
-import OrderStatus from "@/lib/OrderStatus";
+import OrderStatus, { StatusProps } from "@/lib/OrderStatus";
 import { Wallet } from "lucide-react";
 import { Fragment } from "react/jsx-runtime";
 
-type RecentOrdersRowProps = {
-	walletAddress?: string;
+type PaymentMethod = {
+	type: "wallet" | "card";
+	details: string;
 };
 
-function RecentOrderRow(props: RecentOrdersRowProps) {
+export type RecentOrder = {
+	name: string;
+	email: string;
+	status: StatusProps["status"]; // Add more statuses as needed
+	paymentMethod: PaymentMethod;
+	date: string;
+	quantity: number;
+	amount: number;
+};
+
+function RecentOrderRow(props: RecentOrder) {
 	return (
-		<TableRow className='grid grid-cols-3  md:grid-cols-7 items-center'>
-			<TableCell className=' flex gap-3 items-center'>
+		<TableRow className='grid grid-cols-3 md:grid-cols-7 items-center'>
+			<TableCell className='flex gap-3 items-center'>
 				<img
 					src='/Icons/avatar.svg'
 					alt=''
 					className='w-12 hidden md:block'
 				/>
-				<p className='text-[.8rem]'>Anioke Sebastian</p>
+				<p className='text-[.8rem]'>{props.name}</p>
 			</TableCell>
+			<TableCell className='hidden md:block'>{props.email}</TableCell>
 			<TableCell className='hidden md:block'>
-				aniokechukwdi7@gmail.com
+				<OrderStatus status={props.status} />
 			</TableCell>
-			<TableCell className='hidden md:block'>
-				<OrderStatus status='pending' />
-			</TableCell>
-			<TableCell className='   items-center gap-2 hidden md:flex'>
-				{props.walletAddress ? (
+			<TableCell className='items-center gap-2 hidden md:flex'>
+				{props.paymentMethod.type === "wallet" ? (
 					<Fragment>
 						<Wallet />
-						<p>{props.walletAddress}</p>
+						<p>{props.paymentMethod.details}</p>
 					</Fragment>
 				) : (
 					<Fragment>
@@ -37,22 +46,22 @@ function RecentOrderRow(props: RecentOrdersRowProps) {
 							alt=''
 							className='w-8 inline'
 						/>
-						<p>...6345</p>
+						<p>...{props.paymentMethod.details}</p>
 					</Fragment>
 				)}
 			</TableCell>
-
-			<TableCell className='hidden md:block'>Apr 12, 6:09AM</TableCell>
-			<TableCell>07</TableCell>
-			<TableCell className=' flex items-center gap-1 md:gap-2'>
+			<TableCell className='hidden md:block'>{props.date}</TableCell>
+			<TableCell>{props.quantity}</TableCell>
+			<TableCell className='flex items-center gap-1 md:gap-2'>
 				<img
 					src='/Icons/solana.svg'
 					alt=''
 					className='w-6 md:w-10'
 				/>
-				250.00
+				{props.amount.toFixed(2)}
 			</TableCell>
 		</TableRow>
 	);
 }
+
 export default RecentOrderRow;

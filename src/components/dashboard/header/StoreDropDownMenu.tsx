@@ -21,36 +21,39 @@ import {
 } from "@/components/ui/command";
 
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+// import { useStore } from "zustand";
+import useShop from "@/lib/zustand/useShop";
 
-const userStores = [
-	{
-		label: "Acme Inc.",
-		value: "acme-inc",
-		img: "brand-1.svg",
-	},
-	{
-		label: "Monsters",
-		value: "monsters",
-		img: "brand-2.svg",
-	},
-	{
-		label: "Roban",
-		value: "roban",
-		img: "brand-3.svg",
-	},
-	{
-		label: "Digg",
-		value: "digg",
-		img: "brand-4.svg",
-	},
-];
+// const userStores = [
+// 	{
+// 		label: "Acme Inc.",
+// 		value: "acme-inc",
+// 		img: "brand-1.svg",
+// 	},
+// 	{
+// 		label: "Monsters",
+// 		value: "monsters",
+// 		img: "brand-2.svg",
+// 	},
+// 	{
+// 		label: "Roban",
+// 		value: "roban",
+// 		img: "brand-3.svg",
+// 	},
+// 	{
+// 		label: "Digg",
+// 		value: "digg",
+// 		img: "brand-4.svg",
+// 	},
+// ];
 
-type Store = (typeof userStores)[number];
+// type Store = (typeof userStores)[number];
 
 function StoreDropDownMenu() {
 	const [open, setOpen] = useState(false);
+	const { allShops } = useShop();
 	const [showNewTeamDialog, setShowNewTeamDialog] = useState(false);
-	const [selectedTeam, setSelectedTeam] = useState<Store>(userStores[0]);
+	const [selectedTeam, setSelectedTeam] = useState(allShops[0]);
 	return (
 		<Dialog
 			open={showNewTeamDialog}
@@ -61,12 +64,12 @@ function StoreDropDownMenu() {
 				<PopoverTrigger asChild>
 					<div className='flex justify-center gap-2 items-center cursor-pointer '>
 						<img
-							src={`/Icons/${selectedTeam.img}`}
+							src={`${selectedTeam.logo}`}
 							alt=''
 							className='w-8 mr-1'
 						/>
 						<div className='bg-neutral-800 flex gap-2 px-3 rounded-xl items-center'>
-							<p className='text-sm'>{selectedTeam.label}</p>
+							<p className='text-sm'>{selectedTeam.displayName}</p>
 							<ChevronsUpDown width='1rem' />
 						</div>
 					</div>
@@ -80,9 +83,9 @@ function StoreDropDownMenu() {
 						<CommandList>
 							<CommandEmpty>No team found.</CommandEmpty>
 
-							{userStores.map((team) => (
+							{allShops.map((team) => (
 								<CommandItem
-									key={team.value}
+									key={team._id}
 									onSelect={() => {
 										setSelectedTeam(team);
 										setOpen(false);
@@ -90,19 +93,19 @@ function StoreDropDownMenu() {
 									className="text-sm  data-[selected='true']:bg-[#2e2e2e42] data-[selected='true']:text-white">
 									<Avatar className='mr-2  flex justify-center items-center'>
 										<AvatarImage
-											src={`/Icons/${team.img}`}
-											alt={team.label}
+											src={`${team.logo}`}
+											alt={team.displayName}
 											className='w-8 h-8 object-cover'
 										/>
 										<AvatarFallback className='uppercase'>
-											{team.value.substring(0, 2)}
+											{team.name.substring(0, 2)}
 										</AvatarFallback>
 									</Avatar>
-									{team.label}
+									{team.displayName}
 									<CheckIcon
 										className={cn(
 											"ml-auto h-4 w-4",
-											selectedTeam.value === team.value
+											selectedTeam.displayName === team.displayName
 												? "opacity-100"
 												: "opacity-0"
 										)}
