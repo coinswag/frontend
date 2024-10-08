@@ -7,8 +7,10 @@ import {
 	TableRow,
 } from "@/components/ui/table";
 import ProductRow from "../rows/ProductRow";
+import useShop from "@/lib/zustand/useShop";
 
 function ProductTable() {
+	const { shop } = useShop();
 	return (
 		<Table className=' mt-14 [&_tr]:border-b-[#272727] border-2 border-[#272727] rounded-xl '>
 			<TableCaption>A list of your recent invoices.</TableCaption>
@@ -24,38 +26,12 @@ function ProductTable() {
 				</TableRow>
 			</TableHeader>
 			<TableBody>
-				<ProductRow
-					src='/Images/green-merch.png'
-					name='Basic Green Merch'
-					sizes='S, M, L, XL'
-					price={250.0}
-					availableItem={9.0}
-					dateCreated='Apr 12, 6:09AM'
-				/>
-				<ProductRow
-					src='/Images/green-merch.png'
-					name='Basic Green Merch'
-					sizes='S, M, L, XL'
-					price={250.0}
-					availableItem={9.0}
-					dateCreated='Apr 12, 6:09AM'
-				/>
-				<ProductRow
-					src='/Images/green-merch.png'
-					name='Basic Green Merch'
-					sizes='S, M, L, XL'
-					price={250.0}
-					availableItem={9.0}
-					dateCreated='Apr 12, 6:09AM'
-				/>
-				<ProductRow
-					src='/Images/green-merch.png'
-					name='Basic Green Merch'
-					sizes='S, M, L, XL'
-					price={250.0}
-					availableItem={9.0}
-					dateCreated='Apr 12, 6:09AM'
-				/>
+				{shop?.merches.map((item, index) => (
+					<ProductRow
+						key={index}
+						{...item}
+					/>
+				))}
 			</TableBody>
 		</Table>
 	);

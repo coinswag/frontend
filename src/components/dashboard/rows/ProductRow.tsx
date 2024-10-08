@@ -8,30 +8,42 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { MoreHorizontal } from "lucide-react";
 
+type Variant = {
+	size: string;
+	quantity: number;
+	_id: string;
+};
+
 type ProductRowProps = {
-	src: string;
+	_id: string;
 	name: string;
-	sizes: string;
+	description: string;
 	price: number;
-	availableItem: number;
-	dateCreated: string;
+	images: string[];
+	colors: string[];
+	merchandiseType: string;
+	variants: Variant[];
 };
 
 function ProductRow(props: ProductRowProps) {
+	const totalQuantity = props.variants.reduce(
+		(sum, variant) => sum + variant.quantity,
+		0
+	);
+	const sizes = props.variants.map((variant) => variant.size).join(", ");
+
 	return (
 		<TableRow className='grid grid-cols-7 items-center'>
 			<TableCell className='flex gap-3 items-center col-span-2'>
 				<img
-					src={props.src}
+					src={props.images[0]}
 					alt={props.name}
-					className='w-[7rem]'
+					className='w-[4rem]'
 				/>
 				<p>{props.name}</p>
 			</TableCell>
-			<TableCell className=' flex gap-3 items-center'>
-				{props.sizes}
-			</TableCell>
-			<TableCell className=' flex items-center gap-2 '>
+			<TableCell className='flex gap-3 items-center'>{sizes}</TableCell>
+			<TableCell className='flex items-center gap-2'>
 				<img
 					src='/Icons/solana.svg'
 					alt=''
@@ -39,14 +51,13 @@ function ProductRow(props: ProductRowProps) {
 				/>
 				{props.price}
 			</TableCell>
-
-			<TableCell className='  flex  items-center gap-2'>
-				Apr 12, 6:09AM
+			<TableCell className='flex items-center gap-2'>
+				{/* Note: The date is not provided in the new object structure */}
+				N/A
 			</TableCell>
-			<TableCell className='  flex  items-center gap-2'>
-				{props.availableItem}
+			<TableCell className='flex items-center gap-2'>
+				{totalQuantity}
 			</TableCell>
-
 			<TableCell>
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
