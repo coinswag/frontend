@@ -20,7 +20,7 @@ function OrderSummary() {
 	};
 
 	return (
-		<div className='sticky  top-[10vh] h-fit md:w-[26%] border border-borderColor rounded-2xl'>
+		<div className='sticky  top-[10vh] h-fit border border-borderColor rounded-2xl'>
 			<h2 className='border-b border-b-borderColor px-4 py-4 text-xl  text-gray-500'>
 				Order Summary
 			</h2>
@@ -37,8 +37,8 @@ function OrderSummary() {
 					<p className=''>00 USDC</p>
 				</div>
 				<div className='flex items-center justify-between'>
-					<p className='text-green-500'>Discount</p>
-					<p className='text-green-500'>
+					<p className='text-blue-500'>Discount</p>
+					<p className='text-blue-500'>
 						<EthereumIcon />
 						00
 					</p>
@@ -53,7 +53,7 @@ function OrderSummary() {
 			</div>
 			<button
 				onClick={() => navigate("/checkout")}
-				className='mt-4 w-full bg-blue-700 py-3 text-center font-bold text-white'>
+				className='mt-4 w-full  py-3 text-center font-bold text-white bg-violet-500 rounded-xl'>
 				Checkout
 			</button>
 		</div>
