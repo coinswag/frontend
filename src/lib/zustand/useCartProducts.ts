@@ -57,7 +57,7 @@ interface CartProductState {
 	cartItems: CartItemProps[];
 	cartItemTotalPrice: number;
 	setCartItems: (items: CartItemProps[]) => void;
-	addCartItem: (item: Omit<CartItemProps, "quantity">) => void;
+	addCartItem: (item: CartItemProps) => void;
 	removeCartItem: (id: string) => void;
 	updateCartItemQuantity: (id: string, quantity: number) => void;
 	clearCart: () => void;

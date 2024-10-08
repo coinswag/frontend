@@ -37,7 +37,9 @@ function CartItem(props: CartItemProps) {
 					<h2 className='font-semibold text-gray-300 mb-1'>
 						{props.name}
 					</h2>
-					<p className='text-sm text-gray-400 italize'>monster</p>
+					<p className='text-sm text-gray-400 italize'>
+						{props.merchandiseType}
+					</p>
 				</div>
 			</div>
 			<p className='hidden text-sm text-gray-500 md:block '>
