@@ -26,10 +26,10 @@ function CheckoutForm() {
     setCartItemTotalPrice(total);
   }, [cartItems]);
 
-  const handleDeposit = async () => {
+  const handleDirectSolTransfer = async () => {
     const sig = await sendSol(
       "D9iqMouX8SxW8LaxA9PPoKHn87R33b6yvSnRtBAVJeys",
-      1
+      cartItemTotalPrice
     );
     console.log(sig);
 
@@ -114,7 +114,7 @@ function CheckoutForm() {
         !email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g) ||
         !firstName ? (
           <button
-           onClick={connectToMetaMask}
+            onClick={connectToMetaMask}
             className="w-full rounded border-2 border-blue-500 bg-blue-500 py-3 text-center font-bold text-white opacity-70"
           >
             Pay - <EthereumIcon />
@@ -128,7 +128,7 @@ function CheckoutForm() {
         )} */}
 
         <button
-          onClick={handleDeposit}
+          onClick={handleDirectSolTransfer}
           className="w-full rounded border-2 border-blue-500 bg-blue-500 py-3 text-center font-bold text-white opacity-70"
         >
           Deposit -{cartItemTotalPrice} USDC

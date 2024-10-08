@@ -39,7 +39,7 @@ function ProductDetails() {
 
   useEffect(() => {
     if (!currentMerch) {
-      navigate("/shop");
+      navigate("/");
     }
   }, [currentMerch, navigate]);
 

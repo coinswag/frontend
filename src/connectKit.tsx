@@ -2,13 +2,17 @@
 
 import { ConnectKitProvider, createConfig } from "@particle-network/connectkit";
 import { authWalletConnectors } from "@particle-network/connectkit/auth";
-import { solana } from "@particle-network/connectkit/chains";
+import {
+  solana,
+  solanaDevnet,
+  solanaTestnet,
+} from "@particle-network/connectkit/chains";
 import {
   injected as solaInjected,
   solanaWalletConnectors,
 } from "@particle-network/connectkit/solana";
 
-import { wallet, EntryPosition } from "@particle-network/connectkit/wallet";
+// import { wallet, EntryPosition } from "@particle-network/connectkit/wallet";
 import React from "react";
 
 //Retrived from https://dashboard.particle.network
@@ -27,6 +31,9 @@ const config = createConfig({
   projectId,
   clientKey,
   appId,
+  initialChainId: {
+    solana: solanaDevnet.id,
+  },
   appearance: {
     // Optional, collection of properties to alter the appearance of the connection modal
     // Optional, label and sort wallets (to be shown in the connection modal)
@@ -50,11 +57,13 @@ const config = createConfig({
       return countries.filter((item) => item === "US");
     },
   },
+
   walletConnectors: [
     // evmWalletConnectors({
     //   metadata: { name: "My App", icon: "", description: "", url: "" }, // Optional, this is Metadata used by WalletConnect and Coinbase
     //   walletConnectProjectId: "Replace with your WalletConnect Project ID", // optional, retrieved from https://cloud.walletconnect.com
     // }),
+
     authWalletConnectors({
       // Optional, configure this if you're using social logins
       authTypes: ["email", "google", "apple", "twitter", "github"], // Optional, restricts the types of social logins supported
@@ -93,13 +102,12 @@ const config = createConfig({
     }),
   ],
   plugins: [
-    wallet({
-      // Optional configurations for the attached embedded wallet modal
-      entryPosition: EntryPosition.BL, // Alters the position in which the modal button appears upon login
-      visible: false, // Dictates whether or not the wallet modal is included/visible or not
-    }),
+    // wallet({
+    //   entryPosition: EntryPosition.BL, // Alters the position in which the modal button appears upon login
+    //   visible: false, // Dictates whether or not the wallet modal is included/visible or not
+    // }),
   ],
-  chains: [solana],
+  chains: [solana, solanaDevnet, solanaTestnet],
 });
 
 // Export ConnectKitProvider to be used within your index or layout file (or use createConfig directly within those files).

@@ -1,37 +1,35 @@
 import MerchCard from "@/components/shop/MerchCard";
-import { useState } from "react";
 import { Command } from "@/components/ui/command";
 import { cn } from "@/lib/utils";
 import { Search } from "lucide-react";
-import useMerchProduct from "@/lib/zustand/useMerchProduct";
 import { useEffect } from "react";
 import useShop from "@/lib/zustand/useShop";
 
 function ProductOverveiw() {
-  const { merches } = useMerchProduct();
-  const [shopMerch, setShopMerch] = useState(merches);
   const { shop } = useShop();
 
-  const handleMerchSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!e.target.value) {
-      return setShopMerch(shopMerch);
-    }
-    const searchValue = e.target.value;
-    const filteredMerch = shopMerch.filter((merch) =>
-      merch.name.toLowerCase().includes(searchValue.toLowerCase())
-    );
-    setShopMerch(filteredMerch);
-  };
+  // const handleMerchSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   if (!e.target.value) {
+  //     return setShop((shop) => {
+  //       return {
+  //         ...shop,
+  //         merches: [...shop.merches],
+  //       };
+  //     });
+  //   }
+  //   const searchValue = e.target.value;
+  //   const filteredMerch = shop?.merches.filter((merch) =>
+  //     merch.name.toLowerCase().includes(searchValue.toLowerCase())
+  //   );
+  //   setShop(filteredMerch);
+  // };
 
   useEffect(() => {
     const getCartItems = async () => {};
-
     getCartItems();
   }, []);
-  console.log(shop);
-  const stars = shop?.merches.map((product) => (
-    <MerchCard key={product._id} {...product} />
-    // <div>{product.name}</div>
+  const stars = shop?.merches.map((merch) => (
+    <MerchCard key={merch._id} {...merch} />
   ));
   return (
     <main>
@@ -48,7 +46,6 @@ function ProductOverveiw() {
               "flex h-11 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-zinc-500 disabled:cursor-not-allowed disabled:opacity-50 dark:placeholder:text-zinc-400"
             )}
             placeholder="Search for products"
-            onChange={handleMerchSearch}
           />
         </div>
         <p className="mt-12 text-gray-400">Products</p>
