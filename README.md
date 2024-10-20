@@ -1,53 +1,99 @@
-# React + TypeScript + Vite
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![logo](https://res.cloudinary.com/dbuaprzc0/image/upload/v1729260196/qptnjqdfdx9unwseqpqt.png)](https://www.coinswag.shop)
+### Coinswag
+Turn Your Ideas Into Custom Products, Sell Globally
 
-Currently, two official plugins are available:
+<h3>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Website](https://www.coinswag.com/) | [Demo Video](https://www.loom.com/share/f41bea255e3d4069b4860d143e40f8fd)
 
-## Expanding the ESLint configuration
+</h3>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+</div>
 
-- Configure the top-level `parserOptions` property like this:
+<hr />
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+NFT artists, Creators and memecoin communities struggle to create merch shops due to high costs and technical barriers. Coinswag solves this by offering a Web3-native social commerce platform that enables:
+
+1. Easy creation of custom merch from NFTs and ideas
+2. Instant shop setup with no upfront costs
+3. Global sales with both crypto and fiat payments
+
+Key features include on-demand production, native crypto payments, and easy design tools. Our waitlist has already attracted over 100 signups.
+
+Coinswag is revolutionizing how Artists and Communites engage fans and monetize their brand through physical merchandise.
+
+## 📖 Protocol Architecture
+```mermaid
+graph TD
+    A[User logs in to Coinswag] --> B[Access Dashboard]
+    B --> C[View store stats]
+    B --> D[Manage Merchandise]
+    B --> E[Handle Orders]
+    B --> F[View Customers]
+
+    D --> G[Create new merch]
+    G --> H[Upload logo/design]
+    G --> I[Set merch details]
+    G --> J[Choose merch type]
+
+    K[Customer browses store] --> L[Select merch]
+    L --> M[Customize size/color]
+    M --> N[Add to cart]
+    N --> O[Checkout]
+    O --> P[Enter shipping details]
+    P --> Q[Pay with Mercuryo]
+
+    D --> R[Share as blink on Twitter]
+
+    subgraph "Merchandise Types"
+        S[Hoodies]
+        T[T-shirts]
+        U[Mugs]
+        V[Wallpapers]
+        W[Other merch]
+    end
+
+    subgraph "Dashboard Sections"
+        X[Store profit]
+        Y[Orders per month]
+        Z[Recent orders]
+    end
+
+    J --> S
+    J --> T
+    J --> U
+    J --> V
+    J --> W
+
+    C --> X
+    C --> Y
+    C --> Z
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## 🛠 Workflow
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+1. User logs in to their Coinswag account.
+2. Access the dashboard to view store stats (profit, orders, recent sales).
+3. Create new merch by uploading logo/design and setting details.
+4. Choose from various merch types (hoodies, t-shirts, mugs, etc.).
+5. Manage orders and view customer information.
+6. Share merch listings as "blinks" for Twitter promotion.
+7. Customers can browse, customize (size, color), and purchase merch.
+8. Checkout process includes shipping details and payment via [Mercuryo](https://mercuryo.com).
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
-# frontend
-# Coinswag-frontend
-# Coinswag-Frontend
+## 🪛 Integration
+
+[Metaplex DAS API](https://docs.metaplex.com/programs/token-metadata/overview) – Used to fetch and interact with digital asset data on the Solana blockchain.
+
+[Metaplex Bubblegum](https://docs.metaplex.com/programs/compression/overview) - Utilized for creating and managing compressed NFTs representing physical merchandise.
+
+[Mercuryo](https://mercuryo.io/) - Integrated for seamless crypto and fiat payment processing during checkout.
+
+[Arweave](https://www.arweave.org/) - Used for permanent storage of product metadata and designs.
+
+## 🌐 Repo URLs
+
+- [Coinswag Frontend](https://github.com/coinswag/frontend)
+- [Coinswag Backend](https://github.com/coinswag/backend)
